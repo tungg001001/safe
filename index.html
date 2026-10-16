@@ -1,902 +1,994 @@
 <!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taiwan OSH Pro - 職業安全衛生專家與實務全方位門戶網</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        osh: {
-                            light: '#F8FAFC',
-                            card: '#FFFFFF',
-                            navy: '#0F172A',
-                            primary: '#0284C7',
-                            hover: '#0369A1',
-                            accent: '#F59E0B',
-                            green: '#10B981',
-                            red: '#EF4444',
-                            border: '#E2E8F0'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .hero-light-bg {
-            background: linear-gradient(135deg, rgba(240, 249, 255, 0.92) 0%, rgba(224, 242, 254, 0.85) 100%), 
-                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1920&q=80') center/cover;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>職業安全與衛生（OSH）全方位數位學習與管理平台</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+    body { font-family: 'Noto Sans TC', sans-serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    @media print {
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      body { background: white !important; color: black !important; }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col custom-scrollbar">
 
-    <!-- 頂部固定導覽列 (淺色明亮風) -->
-    <nav class="bg-white/90 backdrop-blur-md text-slate-800 fixed w-full z-50 shadow-sm border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-                    <div class="w-10 h-10 rounded-lg bg-sky-600 flex items-center justify-center text-white font-extrabold text-xl shadow-md">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <div>
-                        <span class="font-bold text-lg text-slate-900 tracking-wider block">Taiwan OSH Pro</span>
-                        <span class="text-[10px] text-sky-600 font-bold tracking-tight uppercase">Occupational Safety & Health</span>
-                    </div>
-                </div>
-                <div class="hidden xl:block">
-                    <div class="flex items-center space-x-6 text-sm font-semibold text-slate-600">
-                        <a href="#about" class="hover:text-sky-600 transition">關於職安</a>
-                        <a href="#laws" class="hover:text-sky-600 transition">核心法規</a>
-                        <a href="#hierarchy" class="hover:text-sky-600 transition">控制階層</a>
-                        <a href="#sop" class="hover:text-sky-600 transition">高風險SOP</a>
-                        <a href="#health" class="hover:text-sky-600 transition">四大專案</a>
-                        <a href="#tools" class="hover:text-sky-600 transition">安衛計算工具</a>
-                        <a href="#ghs" class="hover:text-sky-600 transition">GHS全圖庫</a>
-                        <a href="#quiz" class="hover:text-sky-600 transition">知識測驗</a>
-                    </div>
-                </div>
-                <div>
-                    <a href="#contact" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-4 py-2 rounded-lg text-sm transition shadow-md">專家輔導諮詢</a>
-                </div>
-            </div>
+  <!-- 頂部導覽列 Navigation Bar (Light Theme) -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div class="flex items-center space-x-3">
+        <div class="bg-amber-500 text-white p-2 rounded-xl shadow-sm">
+          <i class="fa-solid fa-shield-halved text-xl"></i>
         </div>
-    </nav>
+        <div>
+          <span class="font-black text-lg sm:text-xl tracking-tight text-slate-900">OSH 職安衛數位平台</span>
+          <span class="hidden sm:inline-block text-xs text-amber-600 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full ml-2 font-semibold">臺灣法規標準版</span>
+        </div>
+      </div>
+      <nav class="hidden lg:flex space-x-6 text-sm font-bold text-slate-600">
+        <a href="#framework" class="hover:text-amber-600 transition-colors">全景架構</a>
+        <a href="#curriculum" class="hover:text-amber-600 transition-colors">16大完整課綱</a>
+        <a href="#methodology" class="hover:text-amber-600 transition-colors">危害層級與PDCA</a>
+        <a href="#tools" class="hover:text-amber-600 transition-colors">風險矩陣工具</a>
+        <a href="#laws" class="hover:text-amber-600 transition-colors">修法重點</a>
+        <a href="#quiz" class="hover:text-amber-600 transition-colors">線上測驗</a>
+      </nav>
+      <div class="flex items-center space-x-3">
+        <a href="#github-guide" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition-all flex items-center gap-2 shadow-sm">
+          <i class="fa-brands fa-github text-base"></i> 部署 GitHub
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero 主視覺區 (純淨淺色系) -->
-    <header class="hero-light-bg pt-32 pb-24 px-4 border-b border-sky-100">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-flex items-center space-x-2 bg-sky-100 border border-sky-300 px-4 py-1.5 rounded-full text-sky-800 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
-                <i class="fas fa-shield-halved text-sky-600"></i>
-                <span>落實本質安全 • 實踐尊嚴勞動</span>
+  <!-- Hero 英雄區 (淺色高對比主題) -->
+  <section class="bg-gradient-to-b from-amber-50/60 via-slate-50 to-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200 relative overflow-hidden no-print">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <span class="inline-flex items-center gap-1.5 bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold px-3 py-1 rounded-full">
+            <i class="fa-solid fa-circle-info text-amber-600"></i> 中華民國《職業安全衛生法》全方位教學大綱
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
+            職業安全與衛生 <br><span class="text-amber-600 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">全方位完整數位教材與管理平台</span>
+          </h1>
+          <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+            整合職場安全、職業衛生、健康促進、危害控制層級、自動化風險矩陣計算器、現場巡檢紀錄表與 GitHub Pages 免費部署範本。
+          </p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <a href="#curriculum" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-md flex items-center gap-2 text-sm">
+              <i class="fa-solid fa-book-open"></i> 研讀 16 大教材面向
+            </a>
+            <a href="#tools" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-bold px-6 py-3 rounded-xl transition-all shadow-sm flex items-center gap-2 text-sm">
+              <i class="fa-solid fa-calculator text-amber-500"></i> 開啟風險矩陣試算表
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xl">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <h3 class="font-bold text-slate-800 text-sm flex items-center gap-2">
+                <i class="fa-solid fa-chart-pie text-amber-500"></i> 臺灣職場常見危害類型分析圖
+              </h3>
+              <span class="text-[10px] text-slate-400 bg-slate-100 px-2 py-0.5 rounded">統計數據</span>
             </div>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight mb-6 leading-tight">
-                全面建構企業職業安全衛生<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-emerald-600">風險預防與危害控制管理體系</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
-                整合台灣《職業安全衛生法》法規、ISO 45001 / TOSHMS 管理體系、互動式評估工具（5x5風險矩陣、FR/SR失能傷害頻率嚴重率計算機）、高風險作業管制 SOP 與四大健康保護專案指南。
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#tools" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-sky-600/20 transition flex items-center space-x-2">
-                    <i class="fas fa-calculator"></i>
-                    <span>使用互動計算工具</span>
-                </a>
-                <a href="#sop" class="bg-white hover:bg-slate-100 text-slate-800 font-bold px-8 py-3.5 rounded-xl border border-slate-300 shadow-sm transition flex items-center space-x-2">
-                    <i class="fas fa-file-shield text-sky-600"></i>
-                    <span>高風險作業 SOP</span>
-                </a>
+            <div class="h-56 relative">
+              <canvas id="heroHazardChart"></canvas>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <!-- 數據指標卡片 (淺色高對比) -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mt-16 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-slate-200 shadow-xl">
-                <div class="p-2 border-r border-slate-100 last:border-none">
-                    <div class="text-3xl sm:text-4xl font-black text-sky-600">5 階</div>
-                    <div class="text-xs text-slate-500 mt-1 font-bold">危害控制階層 (Hierarchy)</div>
-                </div>
-                <div class="p-2 border-r border-slate-100 last:border-none">
-                    <div class="text-3xl sm:text-4xl font-black text-emerald-600">9 大</div>
-                    <div class="text-xs text-slate-500 mt-1 font-bold">GHS 全球化學品標示</div>
-                </div>
-                <div class="p-2 border-r border-slate-100 last:border-none">
-                    <div class="text-3xl sm:text-4xl font-black text-amber-500">4 大</div>
-                    <div class="text-xs text-slate-500 mt-1 font-bold">職場健康保護預防專案</div>
-                </div>
-                <div class="p-2">
-                    <div class="text-3xl sm:text-4xl font-black text-purple-600">ISO 45001</div>
-                    <div class="text-xs text-slate-500 mt-1 font-bold">國際職業安衛體系</div>
-                </div>
-            </div>
-        </div>
-    </header>
+  <!-- 主內容區域 -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 flex-grow">
 
-    <!-- 關於職業安全衛生四大核心 (About) -->
-    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">職業安全衛生的四大支柱領域</h2>
-            <p class="text-slate-600 mt-3 max-w-2xl mx-auto font-medium">以「人為本」為核心，融合工程技術、管理制度與醫學健康，達成全方位零災害目標。</p>
+    <!-- 一、整體架構 -->
+    <section id="framework" class="scroll-mt-20">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-sitemap text-amber-500"></i> 一、職業安全衛生的整體架構 (OSH Framework)
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">保護勞工生命、健康、安全與工作能力：四大核心基柱構建完善防護網</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-blue-500">
+          <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
+            <i class="fa-solid fa-shield-cat"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">職業安全</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">預防即時性物理傷害事故，控制機械夾捲、高處墜落、觸電、火災爆炸及局限空間缺氧等危害。</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside bg-slate-50 p-3 rounded-lg border border-slate-100">
+            <li>機械護照與 LOTO 上鎖掛牌</li>
+            <li>高處作業墜落防護與施工架</li>
+            <li>漏電斷路與電氣設備接地</li>
+          </ul>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition border-t-4 border-t-sky-500">
-                <div class="w-14 h-14 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-gears"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-slate-900">職業安全 (Safety)</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    預防夾捲、墜落、感電、物料飛落、火災爆炸等機械設備與物理性災害。著重於機械本質安全化（光幕、防護罩、雙手按鈕）與高風險管制。
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition border-t-4 border-t-emerald-500">
-                <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-flask-vial"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-slate-900">職業衛生 (Hygiene)</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    識別、評估與控制工作環境中之化學性（毒物、有機溶劑）、物理性（噪音、溫熱、振動）及生物性危害，推動作業環境監測與暴露分級管理。
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition border-t-4 border-t-amber-500">
-                <div class="w-14 h-14 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-heart-pulse"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-slate-900">職業健康 (Health)</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    實施體健檢分級管理（第1至第4級管理）、臨場健康服務、人因性危害、過勞、職場暴力與母性健康保護四大專案，確保勞工身心健康。
-                </p>
-            </div>
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition border-t-4 border-t-purple-500">
-                <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-diagram-project"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3 text-slate-900">安衛管理 (TOSHMS)</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    導入 PDCA（Plan-Do-Check-Act）循環，對齊 ISO 45001 與臺灣職業安全衛生管理系統（TOSHMS），建立持續改善管理機制。
-                </p>
-            </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-emerald-500">
+          <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
+            <i class="fa-solid fa-lungs"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">職業衛生</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">控制慢性環境危害，預防職業病，包含化學氣體、粉塵、高低溫、噪音聽力及人因工程骨骼傷害。</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside bg-slate-50 p-3 rounded-lg border border-slate-100">
+            <li>SDS 化學品危害通識與標示</li>
+            <li>作業環境監測與通風控制</li>
+            <li>人體工學與重複性動作危害</li>
+          </ul>
         </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-purple-500">
+          <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">法規與制度</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">遵循《職業安全衛生法》等法令，明確雇主與勞工責任、安全組織推動、教育訓練及健康管理。</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside bg-slate-50 p-3 rounded-lg border border-slate-100">
+            <li>職安衛管理計畫與協議組織</li>
+            <li>體格與特殊健康檢查追蹤</li>
+            <li>職場不法侵害/霸凌申訴機制</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow border-t-4 border-t-amber-500">
+          <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-2xl font-bold mb-4">
+            <i class="fa-solid fa-rotate-left"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">風險與管理</h3>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">透過危害辨識、風險估計、事故調查（RCA）及 PDCA 持續改善循環，提升企業安衛永續績效。</p>
+          <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside bg-slate-50 p-3 rounded-lg border border-slate-100">
+            <li>JSA 工作安全分析與三階矩陣</li>
+            <li>虛驚事件 (Near-Miss) 報告</li>
+            <li>智慧職安 (IoT/AI) 與 ESG 指標</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- 核心法規與合規要求 (Laws) -->
-    <section id="laws" class="py-20 bg-slate-100/70 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">臺灣職業安全衛生核心法規要點</h2>
-                <p class="text-slate-600 mt-3 font-medium">剖析《職業安全衛生法》雇主權責、勞工權利與重大職災通報規範</p>
-            </div>
+    <!-- 二、16 大面向詳細課綱內容 -->
+    <section id="curriculum" class="scroll-mt-20">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-boxes-stacked text-amber-500"></i> 二、職業安全衛生 16 大面向完整教材
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">點擊任意章節卡片即可展開豐富的章節重點、法規連結、案例說明與預防措施</p>
+      </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- 雇主責任 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flex items-center space-x-3 border-b border-slate-100 pb-4 mb-4">
-                        <i class="fas fa-user-tie text-2xl text-sky-600"></i>
-                        <h3 class="font-bold text-xl text-slate-900">雇主法定核心責任</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-slate-700">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-emerald-500 mt-1 mr-2 shrink-0"></i><span><strong>安全防護設施：</strong>提供符合標準之機械防護具、防墜設施及防護具。</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-emerald-500 mt-1 mr-2 shrink-0"></i><span><strong>安衛計畫與守則：</strong>訂定職業安全衛生管理計畫及安全衛生工作守則。</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-emerald-500 mt-1 mr-2 shrink-0"></i><span><strong>教育訓練：</strong>實施法定安全衛生教育訓練（一般勞工新進至少3小時）。</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-emerald-500 mt-1 mr-2 shrink-0"></i><span><strong>體健檢與管理：</strong>辦理新進員工體檢、定期健康檢查與特別危害健康作業檢查。</span></li>
-                    </ul>
-                </div>
-
-                <!-- 勞工權責與退避權 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <div class="flex items-center space-x-3 border-b border-slate-100 pb-4 mb-4">
-                        <i class="fas fa-user-shield text-2xl text-amber-500"></i>
-                        <h3 class="font-bold text-xl text-slate-900">勞工權利與安全義務</h3>
-                    </div>
-                    <ul class="space-y-3 text-sm text-slate-700">
-                        <li class="flex items-start"><i class="fas fa-shield-cat text-amber-500 mt-1 mr-2 shrink-0"></i><span><strong>法定退避權：</strong>工作場所有立即發生危險之虞時，得自行停止作業並退避至安全場所。</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-emerald-500 mt-1 mr-2 shrink-0"></i><span><strong>配合防護規定：</strong>有遵守安全衛生工作守則及正確佩戴個人防護具 (PPE) 之義務。</span></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-emerald-500 mt-1 mr-2 shrink-0"></i><span><strong>受訓與體檢義務：</strong>不得無故拒絕參加法定安全衛生教育訓練與健康檢查。</span></li>
-                    </ul>
-                </div>
-
-                <!-- 重大職災通報 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 border-l-4 border-l-red-500">
-                    <div class="flex items-center space-x-3 border-b border-slate-100 pb-4 mb-4">
-                        <i class="fas fa-triangle-exclamation text-2xl text-red-500"></i>
-                        <h3 class="font-bold text-xl text-slate-900">重大職業災害通報 (法第37條)</h3>
-                    </div>
-                    <p class="text-xs text-slate-500 mb-3 font-semibold">事業單位發生下列職業災害之一時，雇主應於 <span class="text-red-600 text-sm font-black">8 小時內</span> 通報勞動檢查機構：</p>
-                    <ul class="space-y-2 text-sm text-slate-700">
-                        <li class="bg-red-50/80 p-2.5 rounded border border-red-100 font-medium">1. 發生死亡災害者。</li>
-                        <li class="bg-red-50/80 p-2.5 rounded border border-red-100 font-medium">2. 發生災害之罹災人數在 3 人以上者。</li>
-                        <li class="bg-red-50/80 p-2.5 rounded border border-red-100 font-medium">3. 發生災害之罹災人數在 1 人以上，需住院治療者。</li>
-                        <li class="bg-red-50/80 p-2.5 rounded border border-red-100 font-medium">4. 其他經中央主管機關指定公告之災害。</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="cardsContainer">
+        <!-- 16 大面向卡片由 JS 動態生成 -->
+      </div>
     </section>
 
-    <!-- 危害控制階層 (Hierarchy of Controls) -->
-    <section id="hierarchy" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">危害控制階層 (Hierarchy of Controls)</h2>
-            <p class="text-slate-600 mt-3 font-medium">風險評估後改善措施之優先順序原則，效能由高至低</p>
+    <!-- 16 大面向 Modal 彈窗 -->
+    <div id="moduleModal" class="fixed inset-0 bg-slate-900/60 z-50 flex items-center justify-center p-4 hidden backdrop-blur-sm no-print">
+      <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl border border-slate-200">
+        <div class="bg-slate-900 text-white p-5 flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <span id="modalNumber" class="bg-amber-500 text-slate-900 font-black text-sm px-2.5 py-1 rounded">01</span>
+            <h3 id="modalTitle" class="text-lg font-bold">章節標題</h3>
+          </div>
+          <button onclick="closeModal()" class="text-slate-400 hover:text-white text-2xl font-bold px-2">&times;</button>
+        </div>
+        <div class="p-6 overflow-y-auto space-y-6 custom-scrollbar text-slate-700" id="modalContent">
+          <!-- 內容載入 -->
+        </div>
+        <div class="bg-slate-100 p-4 border-t border-slate-200 flex justify-end">
+          <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-5 py-2 rounded-xl text-xs sm:text-sm transition-all shadow">關閉視窗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 三、核心管理方法：危害控制層級與 PDCA -->
+    <section id="methodology" class="scroll-mt-20">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-layer-group text-amber-500"></i> 三、職業安全衛生的核心管理方法
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">落實危害控制優先順序與 PDCA 滾動式改善機制</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- 危害控制層級 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <h3 class="text-lg font-bold text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center justify-between">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-filter text-amber-500"></i> 1. 危害控制層級 (Hierarchy of Controls)</span>
+            <span class="text-xs bg-amber-50 text-amber-700 px-2.5 py-1 rounded-full font-semibold">優先順序：1 ➔ 5</span>
+          </h3>
+          <p class="text-xs text-slate-500 mb-4">防護效果由高至低，應優先考量從源頭消除危害，個人防護具（PPE）為最後一道防線。</p>
+
+          <div class="space-y-3">
+            <div class="bg-emerald-600 text-white p-3.5 rounded-xl shadow-sm flex items-center justify-between">
+              <div>
+                <div class="font-bold text-sm">1. 消除 (Elimination) <span class="bg-emerald-800 text-[10px] px-2 py-0.5 rounded ml-2">效果最佳</span></div>
+                <div class="text-xs opacity-90 mt-0.5">完全移除危險源（如：取消高空作業，改用地面遙控無人機巡檢）</div>
+              </div>
+              <i class="fa-solid fa-circle-xmark text-2xl opacity-80"></i>
+            </div>
+            <div class="bg-teal-600 text-white p-3.5 rounded-xl shadow-sm flex items-center justify-between">
+              <div>
+                <div class="font-bold text-sm">2. 替代 (Substitution)</div>
+                <div class="text-xs opacity-90 mt-0.5">替換為較低危害之化學品或設備（如：水性塗料替代強揮發性有機溶劑）</div>
+              </div>
+              <i class="fa-solid fa-arrows-rotate text-2xl opacity-80"></i>
+            </div>
+            <div class="bg-blue-600 text-white p-3.5 rounded-xl shadow-sm flex items-center justify-between">
+              <div>
+                <div class="font-bold text-sm">3. 工程控制 (Engineering Controls)</div>
+                <div class="text-xs opacity-90 mt-0.5">將人員與危害隔離（如：加裝機械防護罩、局部排氣裝置、隔音牆）</div>
+              </div>
+              <i class="fa-solid fa-gears text-2xl opacity-80"></i>
+            </div>
+            <div class="bg-amber-600 text-white p-3.5 rounded-xl shadow-sm flex items-center justify-between">
+              <div>
+                <div class="font-bold text-sm">4. 行政管理 (Administrative Controls)</div>
+                <div class="text-xs opacity-90 mt-0.5">改變作業規範（如：訂定 SOP、上鎖掛牌 LOTO、作業輪班與安全教育）</div>
+              </div>
+              <i class="fa-solid fa-clipboard-list text-2xl opacity-80"></i>
+            </div>
+            <div class="bg-rose-600 text-white p-3.5 rounded-xl shadow-sm flex items-center justify-between">
+              <div>
+                <div class="font-bold text-sm">5. 個人防護具 (PPE) <span class="bg-rose-800 text-[10px] px-2 py-0.5 rounded ml-2">最後防線</span></div>
+                <div class="text-xs opacity-90 mt-0.5">配戴裝備防護（如：安全帽、防護眼鏡、防毒面具、防墜背負式安全帶）</div>
+              </div>
+              <i class="fa-solid fa-user-shield text-2xl opacity-80"></i>
+            </div>
+          </div>
         </div>
 
-        <div class="space-y-4 max-w-4xl mx-auto">
-            <!-- 1. Elimination -->
-            <div class="bg-emerald-50 text-slate-800 p-6 rounded-2xl shadow-sm border border-emerald-200 flex flex-col md:flex-row items-center justify-between border-l-8 border-l-emerald-600">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <span class="text-3xl font-black text-emerald-600">01</span>
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900">消除 (Elimination) <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-full ml-2">最高防護效能</span></h3>
-                        <p class="text-xs text-slate-600 mt-1 font-medium">完全移除該項危害源。例如：停止使用具危險性的高風險製程或極毒性化學品。</p>
-                    </div>
-                </div>
-                <div class="text-right text-xs font-bold text-emerald-700 bg-emerald-100 px-4 py-2 rounded-lg shrink-0 border border-emerald-200">源頭物理控制</div>
-            </div>
+        <!-- PDCA 循環 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 mb-4 pb-3 border-b border-slate-100 flex items-center gap-2">
+              <i class="fa-solid fa-arrows-spin text-amber-500"></i> 2. OSH PDCA 持續改善循環
+            </h3>
+            <p class="text-xs text-slate-500 mb-6">遵循系統化管理邏輯，讓安衛防護非一次性工作，而是不斷精進的滾動式循環。</p>
 
-            <!-- 2. Substitution -->
-            <div class="bg-sky-50 text-slate-800 p-6 rounded-2xl shadow-sm border border-sky-200 flex flex-col md:flex-row items-center justify-between border-l-8 border-l-sky-600">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <span class="text-3xl font-black text-sky-600">02</span>
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900">替代 (Substitution)</h3>
-                        <p class="text-xs text-slate-600 mt-1 font-medium">以較低危害的物質或製程替代。例如：以水性塗料替代有機溶劑、降低高壓氣體壓力。</p>
-                    </div>
-                </div>
-                <div class="text-right text-xs font-bold text-sky-700 bg-sky-100 px-4 py-2 rounded-lg shrink-0 border border-sky-200">源頭替代控制</div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center">
+                <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-black mx-auto mb-2 text-base">P</div>
+                <h4 class="font-bold text-blue-900 text-sm">Plan 計畫</h4>
+                <p class="text-[11px] text-blue-700 mt-1">危害辨識、風險評估、訂定安衛目標與管理計畫</p>
+              </div>
+              <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center">
+                <div class="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-black mx-auto mb-2 text-base">D</div>
+                <h4 class="font-bold text-emerald-900 text-sm">Do 執行</h4>
+                <p class="text-[11px] text-emerald-700 mt-1">實施工程防護、開辦教育訓練、落實 SOP 與日常作業</p>
+              </div>
+              <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-center">
+                <div class="w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center font-black mx-auto mb-2 text-base">C</div>
+                <h4 class="font-bold text-amber-900 text-sm">Check 查核</h4>
+                <p class="text-[11px] text-amber-700 mt-1">作業自動檢查、環境監測、職安稽核與事故調查</p>
+              </div>
+              <div class="bg-purple-50 border border-purple-200 p-4 rounded-xl text-center">
+                <div class="w-10 h-10 bg-purple-600 text-white rounded-full flex items-center justify-center font-black mx-auto mb-2 text-base">A</div>
+                <h4 class="font-bold text-purple-900 text-sm">Act 改善</h4>
+                <p class="text-[11px] text-purple-700 mt-1">缺失矯正措施、程序書修正更新、管理審查與再發預防</p>
+              </div>
             </div>
-
-            <!-- 3. Engineering Controls -->
-            <div class="bg-blue-50 text-slate-800 p-6 rounded-2xl shadow-sm border border-blue-200 flex flex-col md:flex-row items-center justify-between border-l-8 border-l-blue-600">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <span class="text-3xl font-black text-blue-600">03</span>
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900">工程控制 (Engineering Controls)</h3>
-                        <p class="text-xs text-slate-600 mt-1 font-medium">將人員與危害源實體隔絕。例如：加裝機器防護罩、局部排氣裝置、防墜護欄、隔音罩。</p>
-                    </div>
-                </div>
-                <div class="text-right text-xs font-bold text-blue-700 bg-blue-100 px-4 py-2 rounded-lg shrink-0 border border-blue-200">工程實體隔離</div>
-            </div>
-
-            <!-- 4. Administrative Controls -->
-            <div class="bg-amber-50 text-slate-800 p-6 rounded-2xl shadow-sm border border-amber-200 flex flex-col md:flex-row items-center justify-between border-l-8 border-l-amber-500">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <span class="text-3xl font-black text-amber-600">04</span>
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900">管理控制 (Administrative Controls)</h3>
-                        <p class="text-xs text-slate-600 mt-1 font-medium">改變人員工作模式與程序。例如：建立 SOP、實施動火許可證制度、輪班降低曝露時間。</p>
-                    </div>
-                </div>
-                <div class="text-right text-xs font-bold text-amber-700 bg-amber-100 px-4 py-2 rounded-lg shrink-0 border border-amber-200">制度與流程管制</div>
-            </div>
-
-            <!-- 5. PPE -->
-            <div class="bg-slate-100 text-slate-800 p-6 rounded-2xl shadow-sm border border-slate-300 flex flex-col md:flex-row items-center justify-between border-l-8 border-l-slate-600">
-                <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                    <span class="text-3xl font-black text-slate-600">05</span>
-                    <div>
-                        <h3 class="text-xl font-bold text-slate-900">個人防護具 (PPE) <span class="text-xs bg-slate-600 text-white px-2.5 py-1 rounded-full ml-2">最後一道防線</span></h3>
-                        <p class="text-xs text-slate-600 mt-1 font-medium">佩戴於作業人員個體。例如：全身背負式安全帶、防塵口罩、耳朵保護具、防護面罩。</p>
-                    </div>
-                </div>
-                <div class="text-right text-xs font-bold text-slate-700 bg-slate-200 px-4 py-2 rounded-lg shrink-0 border border-slate-300">個體終端防護</div>
-            </div>
+          </div>
+          <div class="mt-6 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-500">
+            💡 <strong>ISO 45001 精神：</strong>PDCA 循環以「高階領導承諾與勞工參與」為驅動核心。
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- 高風險作業 SOP 檢核區 (SOP) -->
-    <section id="sop" class="py-20 bg-slate-100/70 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">高風險作業標準管制程序 (SOP)</h2>
-                <p class="text-slate-600 mt-3 font-medium">點擊切換查看各類高危險作業之標準流程與必須防護裝備</p>
-            </div>
+    <!-- 四、互動實務工具：風險矩陣計算器與巡檢紀錄表 -->
+    <section id="tools" class="scroll-mt-20">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-calculator text-amber-500"></i> 四、實務互動工具：風險評估矩陣與巡檢紀錄
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">選擇可能性與嚴重性即可即時計算風險等級 ($R = L \times S$)，並可新增至動態清單匯出列印</p>
+      </div>
 
-            <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
-                <div class="flex flex-wrap border-b border-slate-200 bg-slate-50" id="sop-tabs">
-                    <button onclick="switchTab('confined')" id="tab-confined" class="px-6 py-4 font-bold text-sm border-b-2 border-sky-600 text-sky-600 bg-white flex items-center space-x-2 transition">
-                        <i class="fas fa-box-open"></i><span>局限空間作業</span>
-                    </button>
-                    <button onclick="switchTab('height')" id="tab-height" class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-slate-600 hover:text-sky-600 flex items-center space-x-2 transition">
-                        <i class="fas fa-person-falling"></i><span>高處與高空作業</span>
-                    </button>
-                    <button onclick="switchTab('hot')" id="tab-hot" class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-slate-600 hover:text-sky-600 flex items-center space-x-2 transition">
-                        <i class="fas fa-fire-flame-curved"></i><span>動火切削作業</span>
-                    </button>
-                    <button onclick="switchTab('loto')" id="tab-loto" class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-slate-600 hover:text-sky-600 flex items-center space-x-2 transition">
-                        <i class="fas fa-lock"></i><span>檢修上鎖掛牌 (LOTO)</span>
-                    </button>
-                    <button onclick="switchTab('crane')" id="tab-crane" class="px-6 py-4 font-bold text-sm border-b-2 border-transparent text-slate-600 hover:text-sky-600 flex items-center space-x-2 transition">
-                        <i class="fas fa-truck-pickup"></i><span>起重吊掛作業</span>
-                    </button>
-                </div>
+      <div class="grid lg:grid-cols-12 gap-8">
+        <!-- 風險評估計算器 -->
+        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <h3 class="font-bold text-slate-900 text-base border-b pb-3 flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-amber-500"></i> 風險等級試算機
+          </h3>
 
-                <div class="p-8">
-                    <!-- 局限空間 -->
-                    <div id="content-confined" class="sop-content space-y-6">
-                        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-sky-600 pl-3">局限空間作業管制 (Confined Space)</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-sky-700 mb-3"><i class="fas fa-list-check mr-2"></i>標準管制程序步驟</h4>
-                                <ol class="list-decimal list-inside space-y-2 text-sm text-slate-700 leading-relaxed">
-                                    <li>簽發「局限空間入場作業許可證」(PTW)。</li>
-                                    <li><strong>氣體檢測：</strong>進入前測量 O2 (19.5%-23.5%)、LEL (&lt;10%)、CO及H2S。</li>
-                                    <li>實施持續性強制通風（送風機風量需足夠）。</li>
-                                    <li>置備監護人員於入口處，保持連續通訊與監視。</li>
-                                    <li>準備緊急救援三腳架、救生索與正壓式空氣呼吸器。</li>
-                                </ol>
-                            </div>
-                            <div class="bg-sky-50 p-6 rounded-xl border border-sky-100">
-                                <h4 class="font-bold text-slate-900 mb-3"><i class="fas fa-shield-halved mr-2 text-sky-600"></i>強制配備 PPE 與設備</h4>
-                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-sky-100 font-bold">✓ 四合一攜帶式氣體偵測器</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-sky-100 font-bold">✓ 正壓式空氣呼吸器 (SCBA)</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-sky-100 font-bold">✓ 全身背負式安全帶與救生繩</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-sky-100 font-bold">✓ 本質安全防爆型照明與無線電</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">作業項目 / 危害描繪</label>
+            <input type="text" id="riskTask" placeholder="例如：沖床模具調整作業" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-50">
+          </div>
 
-                    <!-- 高處作業 -->
-                    <div id="content-height" class="sop-content hidden space-y-6">
-                        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-amber-500 pl-3">高處與高空作業管制 (Working at Heights)</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-amber-600 mb-3"><i class="fas fa-list-check mr-2"></i>標準管制程序步驟</h4>
-                                <ol class="list-decimal list-inside space-y-2 text-sm text-slate-700 leading-relaxed">
-                                    <li>高度 2 公尺以上防墜優先順序：工作平台 &gt; 護欄 &gt; 安全網 &gt; 個人防墜。</li>
-                                    <li>查核天候：惡劣天氣（風速&gt;10m/s、大雨、大霧）禁止高空作業。</li>
-                                    <li>確信安全母索與繫掛點強度（拉力需達 2,300 kgf 以上）。</li>
-                                    <li>落實「高掛低用」原則，確保安全帶掛鉤高於腰部。</li>
-                                </ol>
-                            </div>
-                            <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
-                                <h4 class="font-bold text-slate-900 mb-3"><i class="fas fa-shield-halved mr-2 text-amber-600"></i>強制配備 PPE 與設備</h4>
-                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-amber-100 font-bold">✓ 全身背負式安全帶 (CNS 14253)</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-amber-100 font-bold">✓ 雙大鉤含衝擊吸收繩</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-amber-100 font-bold">✓ 耐衝擊防護頭盔（含頤帶）</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-amber-100 font-bold">✓ 防滑安全鞋</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">發生可能性 (L) [1-5]</label>
+            <select id="riskL" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-50" onchange="calculateRisk()">
+              <option value="1">1 - 極低（極少發生）</option>
+              <option value="2">2 - 低（偶爾發生）</option>
+              <option value="3" selected>3 - 中（可能發生）</option>
+              <option value="4">4 - 高（經常發生）</option>
+              <option value="5">5 - 極高（持續發生）</option>
+            </select>
+          </div>
 
-                    <!-- 動火作業 -->
-                    <div id="content-hot" class="sop-content hidden space-y-6">
-                        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-red-500 pl-3">動火作業管制 (Hot Work Operations)</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-red-600 mb-3"><i class="fas fa-list-check mr-2"></i>標準管制程序步驟</h4>
-                                <ol class="list-decimal list-inside space-y-2 text-sm text-slate-700 leading-relaxed">
-                                    <li>申請動火許可證，清除周圍 10 公尺內可燃物。</li>
-                                    <li>排水溝、管道洞口以防火毯覆蓋密封。</li>
-                                    <li>現場配置兩具以上有效之 ABC 乾粉滅火器。</li>
-                                    <li>指派專責防火監視人，並於完工後持續監視至少 30 分鐘。</li>
-                                </ol>
-                            </div>
-                            <div class="bg-red-50 p-6 rounded-xl border border-red-100">
-                                <h4 class="font-bold text-slate-900 mb-3"><i class="fas fa-shield-halved mr-2 text-red-600"></i>強制配備 PPE 與設備</h4>
-                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-red-100 font-bold">✓ 遮光面具 / 焊接護目鏡</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-red-100 font-bold">✓ 牛皮防護手套與袖套</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-red-100 font-bold">✓ 防火圍裙 / 防火服</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-red-100 font-bold">✓ 防煙塵呼吸防護具</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">危害嚴重性 (S) [1-5]</label>
+            <select id="riskS" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-50" onchange="calculateRisk()">
+              <option value="1">1 - 輕微（局部包紮即可）</option>
+              <option value="2">2 - 中度（需送醫門診）</option>
+              <option value="3" selected>3 - 重度（失能傷害/住院）</option>
+              <option value="4">4 - 極重（重大災害/永久殘廢）</option>
+              <option value="5">5 - 災難（死亡/多人受傷）</option>
+            </select>
+          </div>
 
-                    <!-- LOTO 上鎖掛牌 -->
-                    <div id="content-loto" class="sop-content hidden space-y-6">
-                        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-purple-600 pl-3">設備檢修上鎖掛牌 (Lockout / Tagout)</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-purple-600 mb-3"><i class="fas fa-list-check mr-2"></i>標準管制程序步驟</h4>
-                                <ol class="list-decimal list-inside space-y-2 text-sm text-slate-700 leading-relaxed">
-                                    <li><strong>通知與停機：</strong>告知相關操作人員，按正常程序停機。</li>
-                                    <li><strong>隔離能源：</strong>切斷主電源、氣閥、水閥。</li>
-                                    <li><strong>上鎖掛牌：</strong>各作業人員於隔離點施加個人安全鎖與警告牌。</li>
-                                    <li><strong>洩放殘能：</strong>洩放電容殘電、管線殘壓及機械位能。</li>
-                                    <li><strong>零能量驗證：</strong>測試啟動按鈕及電壓確認無殘餘能量。</li>
-                                </ol>
-                            </div>
-                            <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
-                                <h4 class="font-bold text-slate-900 mb-3"><i class="fas fa-shield-halved mr-2 text-purple-600"></i>強制配備 PPE 與設備</h4>
-                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-purple-100 font-bold">✓ 個人專用安全鎖與警告標牌</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-purple-100 font-bold">✓ 多孔鎖夾 (Hasp)</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-purple-100 font-bold">✓ 耐電壓絕緣手套（防電弧）</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-purple-100 font-bold">✓ 驗電器 / 三用電表</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+          <div id="riskScoreCard" class="p-4 rounded-xl text-center bg-amber-50 border border-amber-200">
+            <div class="text-[11px] text-slate-500 font-bold">風險等級值 (R = L × S)</div>
+            <div id="riskValue" class="text-3xl font-black text-amber-600 my-1">9</div>
+            <div id="riskBadge" class="inline-block bg-amber-500 text-white font-bold text-xs px-3 py-0.5 rounded-full">中度風險 (Medium Risk)</div>
+          </div>
 
-                    <!-- 起重吊掛 -->
-                    <div id="content-crane" class="sop-content hidden space-y-6">
-                        <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-emerald-600 pl-3">起重吊掛作業管制 (Crane & Rigging)</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-emerald-600 mb-3"><i class="fas fa-list-check mr-2"></i>標準管制程序步驟</h4>
-                                <ol class="list-decimal list-inside space-y-2 text-sm text-slate-700 leading-relaxed">
-                                    <li>檢查起重機合格證及吊掛指揮人員證照。</li>
-                                    <li>吊掛索具（鋼索、尼龍吊帶）檢查：無斷絲、磨損過度或變形。</li>
-                                    <li>確定吊物重量，嚴禁超載；確認吊鉤有過捲預防與防滑舌片。</li>
-                                    <li>劃設吊掛作業管制區，嚴禁人員進入吊掛物下方。</li>
-                                </ol>
-                            </div>
-                            <div class="bg-emerald-50 p-6 rounded-xl border border-emerald-100">
-                                <h4 class="font-bold text-slate-900 mb-3"><i class="fas fa-shield-halved mr-2 text-emerald-600"></i>強制配備 PPE 與設備</h4>
-                                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-700">
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-emerald-100 font-bold">✓ 具顎帶防護安全帽</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-emerald-100 font-bold">✓ 高可視度反光背心</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-emerald-100 font-bold">✓ 防滑防割手套</li>
-                                    <li class="bg-white p-2.5 rounded shadow-sm border border-emerald-100 font-bold">✓ 鋼頭防砸安全鞋</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <button onclick="addRiskItem()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow flex items-center justify-center gap-2">
+            <i class="fa-solid fa-plus"></i> 新增至巡檢紀錄表
+          </button>
         </div>
+
+        <!-- 巡檢紀錄動態清單 -->
+        <div class="lg:col-span-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+              <h3 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-amber-500"></i> 現場危害巡檢清單 (Inspection Log)
+              </h3>
+              <button onclick="window.print()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-lg border border-slate-300 transition-all flex items-center gap-1.5 no-print">
+                <i class="fa-solid fa-print"></i> 列印 / 匯出報表
+              </button>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left text-slate-700">
+                <thead class="bg-slate-100 text-slate-800 uppercase font-bold border-b border-slate-200">
+                  <tr>
+                    <th class="p-2.5">作業危害項目</th>
+                    <th class="p-2.5 text-center">L</th>
+                    <th class="p-2.5 text-center">S</th>
+                    <th class="p-2.5 text-center">風險等級</th>
+                    <th class="p-2.5">控制改善對策</th>
+                    <th class="p-2.5 text-center no-print">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="riskTableBody">
+                  <!-- 動態載入巡檢內容 -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400">
+            * 評估判定標準：風險值 15-25 為高風險；8-12 為中度風險；1-6 為低風險。
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 勞工四大健康保護專案 (Health Protection) -->
-    <section id="health" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">勞工四大健康保護預防專案</h2>
-            <p class="text-slate-600 mt-3 font-medium">依據《職業安全衛生法》第6條，雇主應採取必要之預防措施</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center font-bold text-lg"><i class="fas fa-heart-circle-bolt"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">1. 異常工作負荷促發疾病預防 (過勞預防)</h3>
-                </div>
-                <p class="text-sm text-slate-600 mb-4 leading-relaxed">針對輪班、夜勤、長工時及高壓力工作，評估心血管疾病風險，給予面談指導與工作調整。</p>
-                <div class="bg-slate-50 p-4 rounded-xl text-xs space-y-1.5 text-slate-700 border border-slate-100">
-                    <div>• 評估工具：採用「心血管疾病發病風險評估問卷」。</div>
-                    <div>• 控制手段：調整工時、限制加班、健康諮詢、安排醫護人員臨場指導。</div>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center font-bold text-lg"><i class="fas fa-child-reaching"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">2. 人因性危害預防 (骨骼肌肉傷害)</h3>
-                </div>
-                <p class="text-sm text-slate-600 mb-4 leading-relaxed">預防因重複性動作、不良姿勢、過度施力導致之肌肉骨骼疾病（如腰背痛、媽媽手、腕隧道症候群）。</p>
-                <div class="bg-slate-50 p-4 rounded-xl text-xs space-y-1.5 text-slate-700 border border-slate-100">
-                    <div>• 評估工具：採用 KIM、KOSHA、NLE、KIM-LHC 評估工具。</div>
-                    <div>• 控制手段：改善人體工學桌椅、配置自動化搬運設備、工作輪調。</div>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center font-bold text-lg"><i class="fas fa-hand-fist"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">3. 執行職務受不法侵害預防 (職場暴力)</h3>
-                </div>
-                <p class="text-sm text-slate-600 mb-4 leading-relaxed">預防因職務執行遭受身體肢體暴力、言語霸凌、心理騷擾或性騷擾等危害。</p>
-                <div class="bg-slate-50 p-4 rounded-xl text-xs space-y-1.5 text-slate-700 border border-slate-100">
-                    <div>• 控制手段：建立通報管道、加裝監視設備、安衛與法務支援、心理輔導諮商。</div>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex items-center space-x-3 mb-4">
-                    <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-lg flex items-center justify-center font-bold text-lg"><i class="fas fa-person-breastfeeding"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">4. 母性健康保護專案</h3>
-                </div>
-                <p class="text-sm text-slate-600 mb-4 leading-relaxed">針對妊娠中與分娩後未滿一年之女性勞工，保護其不受危害性化學品、物理性及粗重作業之影響。</p>
-                <div class="bg-slate-50 p-4 rounded-xl text-xs space-y-1.5 text-slate-700 border border-slate-100">
-                    <div>• 控制手段：工作場所危害評估、醫師面談、適任工作調整、哺集乳室設施。</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 互動安衛工具箱 (Tools: 5x5矩陣 + FR/SR計算器) -->
-    <section id="tools" class="py-20 bg-slate-100/70 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">職安衛互動計算與評估工具庫</h2>
-                <p class="text-slate-600 mt-3 font-medium">即時計算風險等級與工災頻率率 / 嚴重率指標</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- 工具 1：5x5 風險矩陣 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-2 text-sky-600 font-bold text-sm mb-2 uppercase">
-                            <i class="fas fa-triangle-exclamation"></i>
-                            <span>Risk Assessment Tool</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4">5x5 職業危害風險評估矩陣</h3>
-                        
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block font-bold text-xs text-slate-700 mb-1">發生可能性 (Likelihood)</label>
-                                <select id="prob" onchange="calculateRisk()" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                                    <option value="1">1 - 極低 (極少發生)</option>
-                                    <option value="2" selected>2 - 低 (偶爾發生)</option>
-                                    <option value="3">3 - 中等 (可能發生)</option>
-                                    <option value="4">4 - 高 (經常發生)</option>
-                                    <option value="5">5 - 極高 (幾乎必然發生)</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block font-bold text-xs text-slate-700 mb-1">嚴重度 (Severity)</label>
-                                <select id="sev" onchange="calculateRisk()" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                                    <option value="1">1 - 微傷 (無工時損失)</option>
-                                    <option value="2">2 - 輕傷 (需送醫診治)</option>
-                                    <option value="3" selected>3 - 中傷 (暫時失能)</option>
-                                    <option value="4">4 - 重傷 (永久部分失能)</option>
-                                    <option value="5">5 - 災難 (死亡或全失能)</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="risk-result-box" class="mt-6 p-5 rounded-xl bg-amber-50 border border-amber-200">
-                        <div class="flex items-baseline space-x-3">
-                            <span id="risk-score" class="text-4xl font-extrabold text-slate-900">6</span>
-                            <span id="risk-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-200 text-amber-800">中度風險 (Medium)</span>
-                        </div>
-                        <p id="risk-desc" class="text-xs text-slate-600 mt-2 leading-relaxed">
-                            需要訂定改善計畫，並於設定期限內進行控制改善。作業時需強化監督。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 工具 2：FR / SR 職災指標計算器 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center space-x-2 text-emerald-600 font-bold text-sm mb-2 uppercase">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Safety Metrics Calculator</span>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-4">工災統計指標 (FR / SR) 計算器</h3>
-
-                        <div class="space-y-3">
-                            <div>
-                                <label class="block font-bold text-xs text-slate-700 mb-1">總經歷工時 (Hours worked)</label>
-                                <input type="number" id="totalHours" value="1000000" oninput="calculateStats()" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label class="block font-bold text-xs text-slate-700 mb-1">失能傷害次數</label>
-                                    <input type="number" id="disablingCases" value="2" oninput="calculateStats()" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block font-bold text-xs text-slate-700 mb-1">總損失工時日數</label>
-                                    <input type="number" id="lostDays" value="45" oninput="calculateStats()" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 p-5 rounded-xl bg-slate-50 border border-slate-200 grid grid-cols-2 gap-4 text-center">
-                        <div>
-                            <div class="text-xs font-bold text-slate-500 uppercase">失能傷害頻率 (FR)</div>
-                            <div id="fr-val" class="text-3xl font-black text-sky-600 mt-1">2.00</div>
-                            <div class="text-[10px] text-slate-400 mt-0.5">每百萬工時失能次數</div>
-                        </div>
-                        <div>
-                            <div class="text-xs font-bold text-slate-500 uppercase">失能傷害嚴重率 (SR)</div>
-                            <div id="sr-val" class="text-3xl font-black text-emerald-600 mt-1">45.00</div>
-                            <div class="text-[10px] text-slate-400 mt-0.5">每百萬工時損失日數</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GHS 化學品危害圖式全庫 (GHS) -->
-    <section id="ghs" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">GHS 化學品全球調和系統象形圖</h2>
-            <p class="text-slate-600 mt-3 font-medium">點擊圖示查看圖示名稱、警示詞與緊急預防處置原則</p>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" id="ghs-grid">
-            <!-- 由 JS 動態生成 GHS 圖式卡片 -->
-        </div>
-
-        <div id="ghs-detail" class="mt-8 p-6 bg-white rounded-2xl shadow-md border border-slate-200 hidden border-t-4 border-t-red-500">
-            <div class="flex justify-between items-start">
-                <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 border-2 border-red-600 rotate-45 flex items-center justify-center shrink-0">
-                        <i id="ghs-icon" class="fas text-red-600 text-2xl -rotate-45"></i>
-                    </div>
-                    <div>
-                        <h3 id="ghs-title" class="text-2xl font-bold text-slate-900">爆炸物</h3>
-                        <span id="ghs-signal" class="text-xs font-bold px-2.5 py-0.5 rounded bg-red-100 text-red-800">標示語：危險</span>
-                    </div>
-                </div>
-                <button onclick="closeGhsDetail()" class="text-slate-400 hover:text-slate-600"><i class="fas fa-times text-xl"></i></button>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 mt-6 text-sm">
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <h4 class="font-bold text-slate-800 mb-1">主要危害特性：</h4>
-                    <p id="ghs-desc" class="text-slate-600 leading-relaxed"></p>
-                </div>
-                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                    <h4 class="font-bold text-slate-800 mb-1">預防與應變處置：</h4>
-                    <p id="ghs-action" class="text-slate-600 leading-relaxed"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 職安知識小測驗 (Quiz) -->
-    <section id="quiz" class="py-20 bg-slate-100/70 border-t border-slate-200">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-sky-600 font-bold text-sm uppercase tracking-wider">Test Your Knowledge</span>
-                <h2 class="text-3xl font-black text-slate-900 mt-1">職業安全衛生知識評測</h2>
-                <p class="text-slate-600 mt-2 font-medium">檢視您的職安衛法規認知與現場實務觀念</p>
-            </div>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                <div id="quiz-container">
-                    <div class="text-xs text-sky-600 font-bold mb-2 uppercase" id="quiz-progress">題目 1 / 3</div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-6" id="quiz-question">載入中...</h3>
-                    <div class="space-y-3" id="quiz-options">
-                        <!-- 選項按鈕 -->
-                    </div>
-                    <div id="quiz-explanation" class="mt-6 p-4 rounded-xl text-sm leading-relaxed hidden">
-                        <!-- 解析 -->
-                    </div>
-                    <div class="mt-6 flex justify-end">
-                        <button id="next-btn" onclick="nextQuestion()" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 py-2.5 rounded-lg text-sm transition shadow-sm hidden">下一題</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 專家諮詢表單 (Contact) -->
-    <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">職安衛專家諮詢與輔導預約</h2>
-            <p class="text-slate-600 mt-3 font-medium">無論是 ISO 45001 管理系統輔導、高風險作業管制或法規合規查核，歡迎與我們聯繫</p>
-        </div>
-
-        <form onsubmit="handleContactSubmit(event)" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-2">姓名 / 職稱</label>
-                    <input type="text" required placeholder="例：林專員" class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-2">事業單位名稱</label>
-                    <input type="text" required placeholder="例：OO科技股份有限公司" class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-2">聯絡電話</label>
-                    <input type="tel" required placeholder="0912-345-678" class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-2">電子郵件</label>
-                    <input type="email" required placeholder="service@example.com" class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                </div>
-            </div>
+    <!-- 五、臺灣職業安全衛生法規 (2025/2026 最新修法重點) -->
+    <section id="laws" class="scroll-mt-20">
+      <div class="bg-gradient-to-r from-amber-500 to-orange-500 text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+        <div class="relative z-10 space-y-6">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/20 pb-4">
             <div>
-                <label class="block text-xs font-bold text-slate-700 mb-2">諮詢項目需求</label>
-                <select class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                    <option>ISO 45001 / TOSHMS 管理系統建置輔導</option>
-                    <option>高風險作業管制與許可證制度 (PTW) 建立</option>
-                    <option>危害辨識與風險評估 (JSA / HAZOP) 培訓</option>
-                    <option>職場健康保護四大專案推動</option>
-                    <option>職安衛法規合規性查核與現場輔導</option>
-                </select>
+              <span class="bg-white/20 text-white font-bold text-xs px-2.5 py-1 rounded-full">官方法規資料庫對齊</span>
+              <h2 class="text-2xl sm:text-3xl font-black mt-2">臺灣《職業安全衛生法》與 2025/2026 最新修法實施</h2>
             </div>
-            <div>
-                <label class="block text-xs font-bold text-slate-700 mb-2">需求說明</label>
-                <textarea rows="4" placeholder="請簡述您的需求或目前廠內遇到的職安衛課題..." class="w-full border border-slate-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+            <div class="flex gap-2 no-print">
+              <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0060001" target="_blank" class="bg-white text-slate-900 hover:bg-slate-100 text-xs px-3.5 py-2 rounded-xl font-bold transition-all shadow-sm">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> 全國法規資料庫
+              </a>
             </div>
-            <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3.5 rounded-xl shadow-md transition">提交輔導申請</button>
-        </form>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-md border border-white/30 rounded-xl p-4 text-xs sm:text-sm leading-relaxed">
+            <i class="fa-solid fa-bell mr-1.5"></i>
+            <strong>法規施行提醒：</strong>《職業安全衛生法》修法案公布，增訂「職場霸凌防治專章」（最高負責人行為開罰最高百萬）、工程規劃設計階段安全評估圖說編列，以及承攬統合管理責任升級。
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6 text-slate-900">
+            <div class="bg-white/95 p-5 rounded-xl shadow-sm border border-slate-100">
+              <h4 class="font-bold text-amber-900 text-sm mb-1.5">《職業安全衛生法》核心</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                預防職業災害，保障工作者安全與健康。涵蓋設施安全義務（第6條）、停止作業權（第18條）、體格與健康檢查（第20條）及事故 8 小時內通報（第37條）。
+              </p>
+            </div>
+            <div class="bg-white/95 p-5 rounded-xl shadow-sm border border-slate-100">
+              <h4 class="font-bold text-amber-900 text-sm mb-1.5">《職業安全衛生管理辦法》</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                規定事業單位依規模設置職業安全衛生委員會、配置安衛業務主管、管理師、管理員，並擬定安衛管理計畫與實施作業自動檢查。
+              </p>
+            </div>
+            <div class="bg-white/95 p-5 rounded-xl shadow-sm border border-slate-100">
+              <h4 class="font-bold text-amber-900 text-sm mb-1.5">承攬管理與責任統合</h4>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                原事業單位交付承攬時應告知危害；多個承攬商共同作業時，應設置協議組織、指定工作場所負責人並執行巡視與統合管理（第26、27條）。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 頁尾 (淺灰色調) -->
-    <footer class="bg-slate-100 text-slate-600 py-10 border-t border-slate-200 text-sm">
-        <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
-            <div class="flex justify-center items-center space-x-2 text-slate-900 font-bold text-lg">
-                <i class="fas fa-hard-hat text-sky-600"></i>
-                <span>Taiwan OSH Pro 職業安全衛生專家網</span>
-            </div>
-            <p class="text-xs">本網站內容符合臺灣《職業安全衛生法》及 ISO 45001 國際安全衛生管理體系指引。</p>
-            <p class="text-xs text-slate-400">© 2026 Taiwan OSH Pro. All rights reserved. 尊嚴勞動 • 本質安全</p>
+    <!-- 六、線上互動測驗題庫 (Quiz Engine) -->
+    <section id="quiz" class="scroll-mt-20">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-graduation-cap text-amber-500"></i> 六、OSH 學習成果檢定與線上題庫
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">檢驗學習成效，包含《職安法》法規、實務安全與危害預防試題</p>
+      </div>
+
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-md max-w-3xl mx-auto">
+        <div id="quizContainer">
+          <div class="flex justify-between items-center text-xs text-slate-500 mb-4 pb-2 border-b border-slate-100">
+            <span>題目 <span id="currentQNum">1</span> / <span id="totalQNum">5</span></span>
+            <span id="quizScore" class="font-bold text-amber-600">目前得分: 0 分</span>
+          </div>
+
+          <h3 id="questionText" class="text-base sm:text-lg font-bold text-slate-900 mb-6">題目載入中...</h3>
+
+          <div id="optionsContainer" class="space-y-3">
+            <!-- 選項動態載入 -->
+          </div>
+
+          <div id="explanationBox" class="mt-6 p-4 rounded-xl text-xs sm:text-sm font-medium border hidden">
+            <!-- 答案解析 -->
+          </div>
+
+          <div class="mt-6 flex justify-end">
+            <button id="nextBtn" onclick="nextQuestion()" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow hidden">
+              下一題 <i class="fa-solid fa-arrow-right ml-1"></i>
+            </button>
+          </div>
         </div>
-    </footer>
 
-    <!-- JavaScript 互動邏輯 -->
-    <script>
-        // 1. SOP 頁籤切換
-        function switchTab(tabKey) {
-            document.querySelectorAll('.sop-content').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('#sop-tabs button').forEach(btn => {
-                btn.classList.remove('border-sky-600', 'text-sky-600', 'bg-white');
-                btn.classList.add('border-transparent', 'text-slate-600');
-            });
+        <div id="quizResult" class="hidden text-center py-8">
+          <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">測驗完成！</h3>
+          <p class="text-slate-600 text-sm mb-6">您的最終得分為：<span id="finalScore" class="text-3xl font-black text-amber-600">0</span> / 100 分</p>
+          <button onclick="restartQuiz()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow">
+            重新測驗 <i class="fa-solid fa-rotate-right ml-1"></i>
+          </button>
+        </div>
+      </div>
+    </section>
 
-            document.getElementById('content-' + tabKey).classList.remove('hidden');
-            const activeBtn = document.getElementById('tab-' + tabKey);
-            activeBtn.classList.add('border-sky-600', 'text-sky-600', 'bg-white');
-            activeBtn.classList.remove('border-transparent', 'text-slate-600');
-        }
+    <!-- 七、GitHub Pages 一鍵免費部署指南 -->
+    <section id="github-guide" class="scroll-mt-20 border-t border-slate-200 pt-12 no-print">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
+          <i class="fa-brands fa-github text-amber-500"></i> 七、如何免費部署此網站至 GitHub Pages
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">簡單 4 個步驟，將這份全方位 HTML 檔發布為公開可存取的免費教學網站</p>
+      </div>
 
-        // 2. 5x5 風險矩陣計算
-        function calculateRisk() {
-            const prob = parseInt(document.getElementById('prob').value);
-            const sev = parseInt(document.getElementById('sev').value);
-            const score = prob * sev;
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+          <span class="absolute -top-3 left-4 bg-slate-900 text-amber-400 font-bold text-[10px] px-2 py-0.5 rounded">步驟 1</span>
+          <h3 class="font-bold text-slate-900 text-sm mt-2 mb-2">建立 Repository</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            登入 GitHub，點擊「New repository」，建立專案名稱（如 <code class="bg-slate-100 text-amber-700 px-1">osh-platform</code>），勾選 Public。
+          </p>
+        </div>
 
-            const scoreEl = document.getElementById('risk-score');
-            const badgeEl = document.getElementById('risk-badge');
-            const descEl = document.getElementById('risk-desc');
-            const boxEl = document.getElementById('risk-result-box');
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+          <span class="absolute -top-3 left-4 bg-slate-900 text-amber-400 font-bold text-[10px] px-2 py-0.5 rounded">步驟 2</span>
+          <h3 class="font-bold text-slate-900 text-sm mt-2 mb-2">上傳程式碼</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            將此頁面儲存為 <code class="bg-slate-100 text-amber-700 px-1">index.html</code>，於 GitHub 專案頁點擊「Uploading an existing file」上傳。
+          </p>
+        </div>
 
-            scoreEl.innerText = score;
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+          <span class="absolute -top-3 left-4 bg-slate-900 text-amber-400 font-bold text-[10px] px-2 py-0.5 rounded">步驟 3</span>
+          <h3 class="font-bold text-slate-900 text-sm mt-2 mb-2">開啟 Pages</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            進入專案的 <strong>Settings</strong> ➔ 點選左側 <strong>Pages</strong> 標籤頁。
+          </p>
+        </div>
 
-            if (score >= 15) {
-                badgeEl.innerText = "不可接受之高風險 (High)";
-                badgeEl.className = "px-3 py-1 rounded-full text-xs font-bold bg-red-200 text-red-800";
-                descEl.innerText = "立即停工或暫緩作業！必須優先實施消除、替代或工程控制，將風險降低至可接受等級方可作業。";
-                boxEl.className = "mt-6 p-5 rounded-xl bg-red-50 border border-red-200";
-            } else if (score >= 8) {
-                badgeEl.innerText = "中度風險 (Medium)";
-                badgeEl.className = "px-3 py-1 rounded-full text-xs font-bold bg-amber-200 text-amber-800";
-                descEl.innerText = "訂定改善計畫，於設定期限內完成改善。作業時需強化監督與遵守 SOP。";
-                boxEl.className = "mt-6 p-5 rounded-xl bg-amber-50 border border-amber-200";
-            } else {
-                badgeEl.innerText = "低風險 / 可接受風險 (Low)";
-                badgeEl.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-200 text-emerald-800";
-                descEl.innerText = "風險在可接受範圍內。維持現有管理控制機制與自主檢查。";
-                boxEl.className = "mt-6 p-5 rounded-xl bg-emerald-50 border border-emerald-200";
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative">
+          <span class="absolute -top-3 left-4 bg-slate-900 text-amber-400 font-bold text-[10px] px-2 py-0.5 rounded">步驟 4</span>
+          <h3 class="font-bold text-slate-900 text-sm mt-2 mb-2">發布上線</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Source 選擇 <code class="bg-slate-100 text-slate-800 px-1">main</code> 與 <code class="bg-slate-100 text-slate-800 px-1">/(root)</code>，點擊 Save 即可獲得專屬網址！
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾 Footer -->
+  <footer class="bg-white text-slate-500 text-xs py-8 border-t border-slate-200 mt-16 no-print">
+    <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+      <p class="font-bold text-slate-700">職業安全與衛生（Occupational Safety and Health）全方位數位學習與管理平台</p>
+      <p>本教材依據中華民國《職業安全衛生法》與實務標準編製，僅供教學、考試準備與安全訓練使用。</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript logic -->
+  <script>
+    // 16 大面向詳細資料庫
+    const modulesData = [
+      {
+        id: 1,
+        title: "01｜職業安全衛生概論",
+        desc: "OSH 定義、發展背景、安全文化建立、事故與職業災害差異、雇主與勞工責任。",
+        icon: "fa-book-open",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">核心範疇與概念</h4>
+          <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            職業安全衛生（OSH）旨在保障工作者之安全、健康與工作能力。事故（Incident）包含未造成傷害的虛驚事件（Near-miss），而職業災害（Occupational Accident）指因勞動場所之建築物、設備、原料、氣體或作業活動引致勞工疾病、傷害、失能或死亡。
+          </p>
+          <h4 class="font-bold text-slate-900 text-sm mb-2">法規法定責任</h4>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-1 mb-4">
+            <li><strong>雇主責任：</strong>提供安全無危害之工作環境、安全防護設施、健康檢查及必要之教育訓練。</li>
+            <li><strong>勞工義務：</strong>遵循標準作業程序（SOP）、正確佩戴防護具、接受健康檢查及出席教育訓練。</li>
+          </ul>
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
+            <strong>安全文化關鍵：</strong>從被動合規升級為主動預防，建立不責難的虛驚事故通報機制。
+          </div>
+        `
+      },
+      {
+        id: 2,
+        title: "02｜危害辨識與風險評估",
+        desc: "危險源鑑別、風險估計（L×S 矩陣）、控制措施擬定與改善追蹤。",
+        icon: "fa-magnifying-glass-chart",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">風險評估三階段</h4>
+          <ol class="list-decimal list-inside text-xs text-slate-600 space-y-2 mb-4">
+            <li><strong>危害辨識 (Hazard Identification)：</strong>找出可能引發危害的人、事、物。</li>
+            <li><strong>風險估計 (Risk Estimation)：</strong>評估發生可能性 (L) 與嚴重性 (S)。</li>
+            <li><strong>風險控制 (Risk Control)：</strong>依據危害控制層級實施改善對策。</li>
+          </ol>
+          <div class="bg-blue-50 p-3 rounded-xl border border-blue-200 text-xs text-blue-900">
+            <strong>實務應用：</strong>作業前應落實 JSA (Job Safety Analysis) 工作安全分析。
+          </div>
+        `
+      },
+      {
+        id: 3,
+        title: "03｜機械設備安全",
+        desc: "旋轉夾捲、切割防護、沖床安全裝置與維修上鎖掛牌 (LOTO)。",
+        icon: "fa-gears",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">三大常見機械危害與對策</h4>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-2 mb-4">
+            <li><strong>夾捲危害：</strong>傳動帶、齒輪。防護措施：固定式護罩、安全光電開關。</li>
+            <li><strong>沖剪切割：</strong>沖床、剪切機。防護措施：雙手按鈕操作裝置。</li>
+            <li><strong>保養維修：</strong>運轉中清機。防護措施：執行 LOTO（上鎖掛牌）與能源隔離驗證。</li>
+          </ul>
+        `
+      },
+      {
+        id: 4,
+        title: "04｜電氣安全",
+        desc: "觸電預防、短路過載、漏電斷路器 (ELCB)、接地與電氣火災。",
+        icon: "fa-bolt",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">電氣危害預防規範</h4>
+          <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            微小電流通過人體即可能引發心室細動。電氣設備必須落實接地與漏電保護。
+          </p>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+            <li>潮濕場所應裝設高感度高速型漏電斷路器 (ELCB)。</li>
+            <li>電線不可重壓、破損或過載串接。</li>
+          </ul>
+        `
+      },
+      {
+        id: 5,
+        title: "05｜營造與高處作業安全",
+        desc: "墜落預防、施工架、吊掛作業、開口防護與局限空間。",
+        icon: "fa-building-circle-exclamation",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">墜落防護第一優先</h4>
+          <p class="text-xs text-slate-600 mb-3">墜落為營造業重大職業災害榜首。</p>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+            <li>高低差 2 公尺以上作業，應設置護欄、護圍或安全網。</li>
+            <li>無法設置護欄時，必須佩戴背負式安全帶並鉤掛於安全母索。</li>
+            <li><strong>局限空間：</strong>氣體檢測（氧氣≥18%）、強制通風及外部監護人。</li>
+          </ul>
+        `
+      },
+      {
+        id: 6,
+        title: "06｜化學品安全",
+        desc: "GHS 危害標示、SDS 安全資料表、化學品儲存與防護通識。",
+        icon: "fa-flask-vial",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">危害通識 GHS 規範</h4>
+          <p class="text-xs text-slate-600 mb-3">容器應粘貼危害標示，並於現場提供 16 項完整之 SDS（安全資料表）。</p>
+          <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-xs text-rose-900">
+            <strong>重要管理：</strong>化學品儲存應分類，有機溶劑與強酸強鹼應有防洩漏堤與洗眼設備。
+          </div>
+        `
+      },
+      {
+        id: 7,
+        title: "07｜物理性與生物性危害",
+        desc: "噪音聽力保護、高熱危害、粉塵、輻射與病原體防護。",
+        icon: "fa-ear-deaf",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">環境危害控制重點</h4>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-2">
+            <li><strong>噪音控制：</strong>85 dB(A) 以上環境應推行聽力保護計畫，佩戴耳塞/耳罩。</li>
+            <li><strong>熱危害：</strong>戶外高溫作業實施 WBGT 監測，提供足夠飲水與休息區。</li>
+          </ul>
+        `
+      },
+      {
+        id: 8,
+        title: "08｜人體工學與肌肉骨骼健康",
+        desc: "搬運重物、重複性動作、工作站設計與腰背疼痛預防。",
+        icon: "fa-child-reaching",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">肌肉骨骼疾病 (MSDs) 預防</h4>
+          <p class="text-xs text-slate-600 mb-3">雇主應對重複性作業促發肌肉骨骼疾病進行危害評估。</p>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+            <li>人工搬運單人重量原則不宜超過 20 kg。</li>
+            <li>電腦工作站：螢幕上緣與眼睛等高、雙腳平放地面。</li>
+          </ul>
+        `
+      },
+      {
+        id: 9,
+        title: "09｜職業健康與職業病",
+        desc: "一般與特殊體檢、臨場健康服務、過勞預防與適性安排。",
+        icon: "fa-heart-pulse",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">健康管理四大範疇</h4>
+          <p class="text-xs text-slate-600 mb-3">新進勞工體檢、在職勞工健檢，以及特殊危害健檢。</p>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+            <li><strong>異常工作負荷（過勞）：</strong>評估輪班、夜勤與加班超時。</li>
+            <li><strong>母性健康保護：</strong>妊娠與分娩後一年內女性工作者之風險評估。</li>
+          </ul>
+        `
+      },
+      {
+        id: 10,
+        title: "10｜消防安全與緊急應變",
+        desc: "火災預防、滅火器使用 (PASS)、疏散演練與急救體系。",
+        icon: "fa-fire-extinguisher",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">緊急應變與消防演練</h4>
+          <p class="text-xs text-slate-600 mb-3">制定自衛消防編組（通報班、滅火班、避難引導班、救護班）。</p>
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
+            <strong>滅火器 PASS：</strong>拉 (Pull Pin)、瞄 (Aim Base)、壓 (Squeeze)、掃 (Sweep)。
+          </div>
+        `
+      },
+      {
+        id: 11,
+        title: "11｜教育訓練與個人防護具",
+        desc: "新進與在職訓練、防護具選用 (PPE)、正確佩戴與維護。",
+        icon: "fa-user-shield",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">教育訓練與 PPE 選用</h4>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-2">
+            <li>新進勞工須接受至少 3 小時（高危險作業至少 6 小時）教育訓練。</li>
+            <li>PPE 必須符合 CNS 認證標準，並實施密合度測試 (Fit Test)。</li>
+          </ul>
+        `
+      },
+      {
+        id: 12,
+        title: "12｜職安衛法規與管理制度",
+        desc: "《職安法》、管理體系 (ISO 45001)、安全巡檢與承攬管理。",
+        icon: "fa-file-contract",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">安全衛生管理制度</h4>
+          <p class="text-xs text-slate-600 mb-3">事業單位應依規模設置安衛組織，訂定職業安全衛生管理計畫與執行自動檢查。</p>
+        `
+      },
+      {
+        id: 13,
+        title: "13｜事故調查與災害預防",
+        desc: "現場保全、根本原因分析 (RCA / 5-Whys)、虛驚通報與矯正。",
+        icon: "fa-kit-medical",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">事故調查 5-Whys 根本原因分析</h4>
+          <p class="text-xs text-slate-600 mb-3">發生事故時應維持現場，8 小時內通報勞檢機構（重大災害），並以 5-Whys 追查不安全行為與管理缺失。</p>
+        `
+      },
+      {
+        id: 14,
+        title: "14｜心理健康與人因風險",
+        desc: "職場霸凌防治、不法侵害預防、工作壓力與輪班疲勞管理。",
+        icon: "fa-brain",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">職場霸凌與不法侵害防治</h4>
+          <p class="text-xs text-slate-600 mb-3">修法新增專章明確定義職場霸凌，要求雇主建立防治措施與申訴管道。</p>
+          <ul class="list-disc list-inside text-xs text-slate-600 space-y-1">
+            <li>30 人以上應訂定職場霸凌防治措施、申訴及懲處規範。</li>
+            <li>行為人為最高負責人時，受害者得直接向地方主管機關申訴。</li>
+          </ul>
+        `
+      },
+      {
+        id: 15,
+        title: "15｜產業別與特殊作業安全",
+        desc: "製造、營造、醫療、實驗室、高空吊掛與局限空間特定範疇。",
+        icon: "fa-industry",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">特定產業危害管理</h4>
+          <p class="text-xs text-slate-600 mb-3">實驗室毒化劑危害、醫療照護之針扎感染、製造業高壓氣體與動火作業許可制度。</p>
+        `
+      },
+      {
+        id: 16,
+        title: "16｜智慧職安與永續管理",
+        desc: "IoT 感測、AI 影像防護辨識、穿戴式裝置與 ESG 永續指標。",
+        icon: "fa-microchip",
+        details: `
+          <h4 class="font-bold text-slate-900 text-sm mb-2">Smart OSH & ESG 整合</h4>
+          <p class="text-xs text-slate-600 mb-3">結合科技前置防護：AI 電眼辨識未戴安全帽、智慧手環實時監測心率與熱中暑風險、IoT 局限空間氣體警報。</p>
+        `
+      }
+    ];
+
+    // 初始化 16 大卡片
+    function renderCards() {
+      const container = document.getElementById('cardsContainer');
+      container.innerHTML = modulesData.map(m => `
+        <div onclick="openModal(${m.id})" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 cursor-pointer transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-black bg-slate-100 group-hover:bg-amber-500 group-hover:text-white text-slate-600 px-2.5 py-1 rounded-lg transition-colors">${String(m.id).padStart(2, '0')}</span>
+              <i class="fa-solid ${m.icon} text-slate-400 group-hover:text-amber-500 text-xl transition-colors"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm mb-2 group-hover:text-amber-600 transition-colors">${m.title.split('｜')[1]}</h3>
+            <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${m.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-amber-600">
+            <span>展開詳細大綱</span>
+            <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Modal 彈窗控制
+    function openModal(id) {
+      const item = modulesData.find(m => m.id === id);
+      if(!item) return;
+      document.getElementById('modalNumber').innerText = String(item.id).padStart(2, '0');
+      document.getElementById('modalTitle').innerText = item.title;
+      document.getElementById('modalContent').innerHTML = item.details;
+      document.getElementById('moduleModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('moduleModal').classList.add('hidden');
+    }
+
+    // 風險評估試算表單
+    let inspectionLog = [
+      { task: "沖床作業清機維修", l: 4, s: 4, r: 16, level: "高風險", control: "裝設安全光電系統並執行 LOTO 上鎖" },
+      { task: "有機溶劑清洗零部件", l: 3, s: 3, r: 9, level: "中度風險", control: "加裝局部排氣裝置與配戴防毒面具" }
+    ];
+
+    function calculateRisk() {
+      const l = parseInt(document.getElementById('riskL').value);
+      const s = parseInt(document.getElementById('riskS').value);
+      const r = l * s;
+      
+      const valueEl = document.getElementById('riskValue');
+      const badgeEl = document.getElementById('riskBadge');
+      
+      valueEl.innerText = r;
+      
+      if(r >= 15) {
+        valueEl.className = "text-3xl font-black text-rose-600 my-1";
+        badgeEl.className = "inline-block bg-rose-600 text-white font-bold text-xs px-3 py-0.5 rounded-full";
+        badgeEl.innerText = "高風險 (High Risk)";
+      } else if(r >= 8) {
+        valueEl.className = "text-3xl font-black text-amber-600 my-1";
+        badgeEl.className = "inline-block bg-amber-500 text-white font-bold text-xs px-3 py-0.5 rounded-full";
+        badgeEl.innerText = "中度風險 (Medium Risk)";
+      } else {
+        valueEl.className = "text-3xl font-black text-emerald-600 my-1";
+        badgeEl.className = "inline-block bg-emerald-600 text-white font-bold text-xs px-3 py-0.5 rounded-full";
+        badgeEl.innerText = "低風險 (Low Risk)";
+      }
+    }
+
+    function addRiskItem() {
+      const taskInput = document.getElementById('riskTask');
+      const task = taskInput.value.trim() || "未命名作業";
+      const l = parseInt(document.getElementById('riskL').value);
+      const s = parseInt(document.getElementById('riskS').value);
+      const r = l * s;
+      
+      let level = "低風險";
+      let control = "行政管理與教育訓練";
+      if(r >= 15) { level = "高風險"; control = "優先工程控制/停止作業"; }
+      else if(r >= 8) { level = "中度風險"; control = "增設工程防護與 SOP"; }
+
+      inspectionLog.push({ task, l, s, r, level, control });
+      taskInput.value = '';
+      renderInspectionTable();
+    }
+
+    function deleteRiskItem(index) {
+      inspectionLog.splice(index, 1);
+      renderInspectionTable();
+    }
+
+    function renderInspectionTable() {
+      const tbody = document.getElementById('riskTableBody');
+      tbody.innerHTML = inspectionLog.map((item, idx) => `
+        <tr class="border-b border-slate-100 hover:bg-slate-50">
+          <td class="p-2.5 font-bold text-slate-800">${item.task}</td>
+          <td class="p-2.5 text-center font-bold">${item.l}</td>
+          <td class="p-2.5 text-center font-bold">${item.s}</td>
+          <td class="p-2.5 text-center">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${item.r >= 15 ? 'bg-rose-100 text-rose-700' : item.r >= 8 ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-700'}">
+              ${item.r} (${item.level})
+            </span>
+          </td>
+          <td class="p-2.5">${item.control}</td>
+          <td class="p-2.5 text-center no-print">
+            <button onclick="deleteRiskItem(${idx})" class="text-rose-500 hover:text-rose-700 text-xs font-bold px-2 py-1">刪除</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // 測驗系統 (Quiz Engine)
+    const quizQuestions = [
+      {
+        q: "依危害控制層級 (Hierarchy of Controls)，發現工作場所存在危害時，應優先考慮採取何種措施？",
+        options: ["配戴個人防護具 (PPE)", "消除危害 (Elimination)", "訂定 SOP 行政管理", "加設警示標示"],
+        ans: 1,
+        exp: "解析：危害控制優先順序為「消除 ➔ 替代 ➔ 工程控制 ➔ 行政管理 ➔ 個人防護具」。"
+      },
+      {
+        q: "事業單位發生死亡或多人失能之重大職業災害時，雇主應於多久時間內通報勞動檢查機構？",
+        options: ["24 小時內", "12 小時內", "8 小時內", "48 小時內"],
+        ans: 2,
+        exp: "解析：依《職業安全衛生法》第 37 條規定，發生重大職業災害應於 8 小時內通報勞動檢查機構。"
+      },
+      {
+        q: "高低差多少公尺以上有墜落之虞的作業場所，雇主應設置護欄、護圍或安全網等防護設施？",
+        options: ["1.5 公尺", "2 公尺", "3 公尺", "5 公尺"],
+        ans: 1,
+        exp: "解析：工作場所高低差在 2 公尺以上時，應採取設置護欄或安全帶等防墜措施。"
+      },
+      {
+        q: "關於最新《職安法》修法中「職場霸凌」防治之規定，下列敘述何者正確？",
+        options: ["雇主無須建立申訴管道", "行為人若為事業單位最高負責人，受害者得直接向地方主管機關申訴", "僅適用於大企業", "霸凌僅限肢體暴力"],
+        ans: 1,
+        exp: "解析：最新修法規定，若被申訴人為最高負責人，勞工可直接向地方主管機關申訴。"
+      },
+      {
+        q: "進行局限空間作業時，下列何者為非必要之安全程序？",
+        options: ["作業前進行氣體濃度測定", "全程實施強制通風換氣", "指派外部監護人員", "可免填進入許可證以節省時間"],
+        ans: 3,
+        exp: "解析：進入局限空間必須嚴格執行「進入許可制度」，進入前須簽署許可證。"
+      }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    let answered = false;
+
+    function renderQuestion() {
+      answered = false;
+      const q = quizQuestions[currentQ];
+      document.getElementById('currentQNum').innerText = currentQ + 1;
+      document.getElementById('totalQNum').innerText = quizQuestions.length;
+      document.getElementById('questionText').innerText = q.q;
+      document.getElementById('explanationBox').classList.add('hidden');
+      document.getElementById('nextBtn').classList.add('hidden');
+
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = q.options.map((opt, i) => `
+        <button onclick="selectOption(${i})" class="option-btn w-full text-left p-3.5 rounded-xl border border-slate-200 hover:border-amber-500 hover:bg-amber-50/50 text-xs sm:text-sm font-medium transition-all flex items-center gap-3">
+          <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-600">${String.fromCharCode(65 + i)}</span>
+          <span>${opt}</span>
+        </button>
+      `).join('');
+    }
+
+    function selectOption(index) {
+      if(answered) return;
+      answered = true;
+      const q = quizQuestions[currentQ];
+      const buttons = document.querySelectorAll('.option-btn');
+      
+      if(index === q.ans) {
+        score += 20;
+        buttons[index].classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+      } else {
+        buttons[index].classList.add('bg-rose-100', 'border-rose-500', 'text-rose-900');
+        buttons[q.ans].classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+      }
+
+      document.getElementById('quizScore').innerText = `目前得分: ${score} 分`;
+      
+      const expBox = document.getElementById('explanationBox');
+      expBox.innerHTML = q.exp;
+      expBox.className = `mt-6 p-4 rounded-xl text-xs sm:text-sm font-medium border ${index === q.ans ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-rose-50 border-rose-200 text-rose-800'}`;
+      expBox.classList.remove('hidden');
+
+      document.getElementById('nextBtn').classList.remove('hidden');
+    }
+
+    function nextQuestion() {
+      currentQ++;
+      if(currentQ < quizQuestions.length) {
+        renderQuestion();
+      } else {
+        document.getElementById('quizContainer').classList.add('hidden');
+        document.getElementById('quizResult').classList.remove('hidden');
+        document.getElementById('finalScore').innerText = score;
+      }
+    }
+
+    function restartQuiz() {
+      currentQ = 0;
+      score = 0;
+      document.getElementById('quizScore').innerText = `目前得分: 0 分`;
+      document.getElementById('quizContainer').classList.remove('hidden');
+      document.getElementById('quizResult').classList.add('hidden');
+      renderQuestion();
+    }
+
+    // Chart.js 畫 Hero 圖表
+    function initChart() {
+      const ctx = document.getElementById('heroHazardChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['墜落與跌傷', '機械夾捲切割', '物體飛落撞擊', '化學/職業病/其他'],
+          datasets: [{
+            data: [42, 25, 18, 15],
+            backgroundColor: ['#f59e0b', '#ef4444', '#3b82f6', '#10b981'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { color: '#475569', font: { size: 11, weight: 'bold' } }
             }
+          }
         }
+      });
+    }
 
-        // 3. 失能傷害統計指標 (FR / SR) 計算
-        function calculateStats() {
-            const hours = parseFloat(document.getElementById('totalHours').value) || 0;
-            const cases = parseFloat(document.getElementById('disablingCases').value) || 0;
-            const days = parseFloat(document.getElementById('lostDays').value) || 0;
-
-            if (hours > 0) {
-                const fr = (cases * 1000000) / hours;
-                const sr = (days * 1000000) / hours;
-                document.getElementById('fr-val').innerText = fr.toFixed(2);
-                document.getElementById('sr-val').innerText = sr.toFixed(2);
-            } else {
-                document.getElementById('fr-val').innerText = "0.00";
-                document.getElementById('sr-val').innerText = "0.00";
-            }
-        }
-
-        // 4. GHS 資料與互動
-        const ghsData = [
-            { id: 'explosive', icon: 'fa-burst', title: '爆炸物', signal: '危險', desc: '不穩定爆炸物、有機過氧化物。受熱、摩擦或衝擊可能引發爆炸。', action: '遠離熱源、火花、明火。嚴禁摩擦與撞擊。' },
-            { id: 'flammable', icon: 'fa-fire-flame-simple', title: '易燃物質', signal: '危險 / 警告', desc: '易燃氣體、液體、固體及自燃物質。受熱容易著火。', action: '遠離火源，採取防靜電措施，保持通風良好。' },
-            { id: 'oxidizer', icon: 'fa-fire-node', title: '氧化性物質', signal: '危險 / 警告', desc: '可能引起或助燃其他物質，增加火災危險。', action: '遠離可燃物及還原劑，儲存於陰涼通風處。' },
-            { id: 'gas', icon: 'fa-bottle-droplet', title: '加壓氣體', signal: '危險 / 警告', desc: '壓縮氣體、液化氣體。受熱可能爆炸；冷凍氣體可能造成低溫灼傷。', action: '避免陽光直射，儲存於通風良好且溫度低於 40℃ 處。' },
-            { id: 'corrosive', icon: 'fa-vial-virus', title: '腐蝕性物質', signal: '危險', desc: '造成嚴重皮膚灼傷、眼睛損傷及金屬腐蝕。', action: '佩戴防護面罩、耐酸鹼手套，現場備妥沖淋洗眼器。' },
-            { id: 'toxic', icon: 'fa-skull-crossbones', title: '急毒性物質', signal: '危險', desc: '吞食、吸入或皮膚接觸可能致死或嚴重急性中毒。', action: '於密閉通風櫃操作，佩戴正壓式呼吸防護具。' },
-            { id: 'harmful', icon: 'fa-triangle-exclamation', title: '驚嘆號 (刺激性)', signal: '警告', desc: '引起皮膚刺激、眼睛刺激、呼吸道過敏或麻醉作用。', action: '避免吸入蒸氣，作業後澈底清洗，配戴基本 PPE。' },
-            { id: 'health', icon: 'fa-lungs-virus', title: '健康危害 (CMR)', signal: '危險 / 警告', desc: '致癌性、生殖細胞致突變性、呼吸道過敏或器官毒性。', action: '採取工程隔離措施，落實危害暴露評估與分級管理。' },
-            { id: 'environmental', icon: 'fa-fish-fins', title: '環境危害', signal: '警告', desc: '對水生生物具毒性，具長期持續影響。', action: '避免釋放至環境中，廢棄物依法規妥善處理。' }
-        ];
-
-        function renderGhsGrid() {
-            const container = document.getElementById('ghs-grid');
-            container.innerHTML = ghsData.map((item, idx) => `
-                <div onclick="showGhsDetail(${idx})" class="bg-white p-4 rounded-xl shadow-sm cursor-pointer border border-slate-200 hover:border-red-500 hover:shadow-md transition text-center group">
-                    <div class="w-14 h-14 border-2 border-red-600 rotate-45 mx-auto mb-4 flex items-center justify-center group-hover:bg-red-50 transition">
-                        <i class="fas ${item.icon} text-red-600 text-xl -rotate-45"></i>
-                    </div>
-                    <div class="font-bold text-xs text-slate-800">${item.title}</div>
-                </div>
-            `).join('');
-        }
-
-        function showGhsDetail(index) {
-            const item = ghsData[index];
-            document.getElementById('ghs-icon').className = `fas ${item.icon} text-2xl text-red-600 -rotate-45`;
-            document.getElementById('ghs-title').innerText = item.title;
-            document.getElementById('ghs-signal').innerText = '標示語：' + item.signal;
-            document.getElementById('ghs-desc').innerText = item.desc;
-            document.getElementById('ghs-action').innerText = item.action;
-            document.getElementById('ghs-detail').classList.remove('hidden');
-        }
-
-        function closeGhsDetail() {
-            document.getElementById('ghs-detail').classList.add('hidden');
-        }
-
-        // 5. 職安小測驗邏輯
-        const quizData = [
-            {
-                q: "依臺灣《職業安全衛生法》規定，當工作場所發生死亡職業災害時，雇主應於多久時間內通報勞動檢查機構？",
-                options: ["2 小時內", "8 小時內", "24 小時內", "48 小時內"],
-                ans: 1,
-                exp: "正確答案是 8 小時內！依《職安法》第 37 條規定，發生死亡災害、罹災人數在 3 人以上或 1 人以上需住院者，雇主應於 8 小時內通報。"
-            },
-            {
-                q: "在「控制措施階層 (Hierarchy of Controls)」中，最具源頭防護效果的手段是？",
-                options: ["個人防護具 (PPE)", "工程控制", "消除危害 (Elimination)", "管理控制"],
-                ans: 2,
-                exp: "正確答案是「消除危害」！消除法是從源頭完全移除危害（如改用無毒原料），為最高等級防護。"
-            },
-            {
-                q: "進行高處作業（高度在 2 公尺以上）時，全身背負式安全帶掛鉤繫掛應遵循何種原則？",
-                options: ["低掛高用", "高掛低用（高於腰部）", "任意繫掛", "僅掛於施工架腳踏板"],
-                ans: 1,
-                exp: "正確答案是「高掛低用」！掛鉤應繫掛於高於腰部之堅固繫掛點，以縮短自由墜落距離與衝擊力。"
-            }
-        ];
-
-        let currentQ = 0;
-
-        function loadQuiz() {
-            const q = quizData[currentQ];
-            document.getElementById('quiz-progress').innerText = `題目 ${currentQ + 1} / ${quizData.length}`;
-            document.getElementById('quiz-question').innerText = q.q;
-            document.getElementById('quiz-explanation').classList.add('hidden');
-            document.getElementById('next-btn').classList.add('hidden');
-
-            const optionsContainer = document.getElementById('quiz-options');
-            optionsContainer.innerHTML = q.options.map((opt, i) => `
-                <button onclick="checkQuizAnswer(${i})" class="w-full text-left p-3.5 rounded-lg bg-slate-50 hover:bg-sky-50 border border-slate-200 transition text-sm font-medium flex items-center justify-between">
-                    <span>${opt}</span>
-                    <i class="far fa-circle text-slate-400"></i>
-                </button>
-            `).join('');
-        }
-
-        function checkQuizAnswer(selectedIdx) {
-            const q = quizData[currentQ];
-            const expEl = document.getElementById('quiz-explanation');
-            const nextBtn = document.getElementById('next-btn');
-
-            if (selectedIdx === q.ans) {
-                expEl.className = "mt-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-sm text-emerald-800";
-                expEl.innerHTML = `<i class="fas fa-check-circle mr-2 text-emerald-600"></i><strong>回答正確！</strong><br>${q.exp}`;
-            } else {
-                expEl.className = "mt-6 p-4 rounded-xl bg-red-50 border border-red-200 text-sm text-red-800";
-                expEl.innerHTML = `<i class="fas fa-times-circle mr-2 text-red-600"></i><strong>回答錯誤！</strong><br>${q.exp}`;
-            }
-
-            expEl.classList.remove('hidden');
-            nextBtn.classList.remove('hidden');
-        }
-
-        function nextQuestion() {
-            currentQ = (currentQ + 1) % quizData.length;
-            loadQuiz();
-        }
-
-        function handleContactSubmit(e) {
-            e.preventDefault();
-            alert('感謝您的諮詢申請！我們的職安專家團隊將於 24 小時內與您聯繫。');
-            e.target.reset();
-        }
-
-        window.onload = function() {
-            calculateRisk();
-            calculateStats();
-            renderGhsGrid();
-            loadQuiz();
-        };
-    </script>
+    // 初始化
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+      renderInspectionTable();
+      calculateRisk();
+      renderQuestion();
+      initChart();
+    });
+  </script>
 </body>
 </html>
