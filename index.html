@@ -67,7 +67,7 @@
             職業安全與衛生 <br><span class="text-amber-600 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">精密數據數位學習教材</span>
           </h1>
           <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
-            含 GHS 化學品危害標示 6 大要素、有害廢棄物標示、雇主與勞工雙向法定責任、合梯 75° 張角限制、照度與 16 大面向深度數據標準。
+            含車床/銑床/鑽床機械安全規範、GHS 標示 6 要素、合梯 75° 張角限制、照度與 16 大面向深度數據標準。
           </p>
           <div class="flex flex-wrap gap-3 pt-2">
             <a href="#curriculum" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-md flex items-center gap-2 text-sm">
@@ -126,9 +126,9 @@
           <h3 class="text-lg font-bold text-slate-900 mb-2">職業安全</h3>
           <p class="text-xs text-slate-600 leading-relaxed mb-4">預防即時性物理傷害事故，控制機械夾捲、高處墜落、觸電、火災爆炸及局限空間缺氧等危害。</p>
           <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside bg-slate-50 p-3 rounded-lg border border-slate-100">
+            <li>車/銑/鑽床嚴禁戴手套與防護罩連鎖</li>
             <li>合梯 75° 張角與頂階/第二階禁站</li>
             <li>LOTO 驗電與 0.1 秒 ELCB 切斷</li>
-            <li>TS 標章光電連鎖響應 < 20ms</li>
           </ul>
         </div>
 
@@ -179,7 +179,7 @@
         <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
           <i class="fa-solid fa-boxes-stacked text-amber-500"></i> 二、職業安全衛生 16 大面向數位教材
         </h2>
-        <p class="text-slate-600 text-sm mt-2">包含法規條文、精準物理量數據（ Lux / 角度 / 氣體濃度 / 閥值）、GHS 危害標示與現場點檢標準</p>
+        <p class="text-slate-600 text-sm mt-2">包含法規條文、精準物理量數據（ Lux / 角度 / 氣體濃度 / 閥值）、車/銑/鑽床安全與現場點檢標準</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -247,22 +247,69 @@
           </div>
         </div>
 
-        <!-- 03 -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
+        <!-- 03 (深度擴充：機械設備安全與 TS 標章，含車床、銑床、鑽床專區) -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 md:col-span-2 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">03</span>
+            <span class="font-bold text-amber-600 text-xs bg-amber-50 px-2 py-0.5 rounded border border-amber-200">機械加工危害預防重點</span>
             <i class="fa-solid fa-gears text-amber-500 text-lg"></i>
           </div>
-          <h3 class="font-bold text-slate-900 text-base">機械設備安全與 TS 安全標章</h3>
-          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度數據解析：</strong>沖剪機械之雙手起動裝置，兩按鈕外側間距必須大於 <strong>300 mm (30 cm)</strong>，且防連續單衝壓連鎖之響應時間應 <strong>< 20 ms</strong>。光電式安全裝置遮光時，煞車停止時間需能在人手到達危險界限（安全距離 S = 1600 mm/s × T）前完成急停。</p>
+          <h3 class="font-bold text-slate-900 text-lg">機械設備安全、TS 標章與工具機（車床、銑床、鑽床）安全規範</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            依《職業安全衛生設施標準》第 43~58 條規定，雇主對於動力運轉之機械，其突出的旋轉軸、傳動帶及加工危險點均應設置護罩或護圍。沖剪機械雙手起動按鈕間距需 > <strong>300 mm</strong>，光電連鎖響應時間 < <strong>20 ms</strong>。對於車床、銑床、鑽床等旋轉加工機械，現場操作應嚴格遵守下列規範：
+          </p>
 
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
-            <p><strong>📜 法規條文：</strong>《職安法》第 7 條、《機械設備器具安全標準》第 9~15 條。</p>
-            <p><strong>📊 定量點檢：</strong>雙手按鈕間距 > 300mm；光電防護響應時間 < 20ms；貼有具驗證字號之 TS 安全標章。</p>
+          <!-- 旋轉機械安全防護視覺圖 -->
+          <div class="my-3">
+            <Image src="image_agent_tag_7766802633398930118" alt="車床旋轉夾頭安裝透明防護罩與護圍" caption="車床旋轉夾頭透明防護罩與緊急停機開關" />
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-4 text-xs text-slate-800">
+            <!-- 車床 (Lathe) -->
+            <div class="bg-amber-50/80 p-4 rounded-xl border border-amber-200 space-y-2">
+              <h4 class="font-bold text-amber-900 text-sm border-b border-amber-300 pb-1 flex items-center justify-between">
+                <span>⚙️ 一、車床 (Lathe Machine)</span>
+                <span class="text-[10px] bg-amber-600 text-white px-2 py-0.5 rounded">《設施標準》§43, 56</span>
+              </h4>
+              <ul class="space-y-1.5 text-slate-700 list-disc list-inside leading-relaxed">
+                <li><strong>夾頭防護護罩：</strong>夾頭（Chuck）必須裝設透明安全護罩，且護罩開啟時機台應連鎖無法啟動。</li>
+                <li><strong>夾頭扳手處置：</strong>夾頭扳手（Key）使用完畢必須**立即拔除**，嚴禁留置於夾頭上（避免開機飛出傷人）。</li>
+                <li><strong>切屑處置與長料防護：</strong>清理切屑應使用**專用刮刀或刷子**，嚴禁以手直接清理；棒材加工突出主軸後方超過 <strong>50 cm</strong> 時，應加裝長料護套與護圍。</li>
+                <li><strong>禁止配戴限制：</strong>操作車床**嚴禁配戴手套**，並應將袖口紮緊、長髮納入工作帽內。</li>
+              </ul>
+            </div>
+
+            <!-- 銑床 (Milling Machine) -->
+            <div class="bg-blue-50/80 p-4 rounded-xl border border-blue-200 space-y-2">
+              <h4 class="font-bold text-blue-900 text-sm border-b border-blue-300 pb-1 flex items-center justify-between">
+                <span>铣 二、銑床 (Milling Machine)</span>
+                <span class="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded">《設施標準》§44, 57</span>
+              </h4>
+              <ul class="space-y-1.5 text-slate-700 list-disc list-inside leading-relaxed">
+                <li><strong>刀具防護與飛濺護罩：</strong>旋轉銑刀刃具周圍應裝設透明切屑飛濺擋板（防護罩）及切削液噴濺擋板。</li>
+                <li><strong>工件固定與鎖緊：</strong>工件必須使用虎鉗或壓板穩固鎖緊於工作台上，嚴禁以手握持工件進行銑削作業。</li>
+                <li><strong>量測與換刀作業：</strong>測量尺寸、更換刀具或清理切屑前，必須**完全停機**（靜止後始得操作）。</li>
+                <li><strong>個人防護具：</strong>強制佩戴護目鏡（防高熱金屬飛屑），**操作旋轉刀具時嚴禁戴布手套**。</li>
+              </ul>
+            </div>
+
+            <!-- 鑽床 (Drilling Machine) -->
+            <div class="bg-emerald-50/80 p-4 rounded-xl border border-emerald-200 space-y-2">
+              <h4 class="font-bold text-emerald-900 text-sm border-b border-emerald-300 pb-1 flex items-center justify-between">
+                <span>鑽 三、鑽床 (Drilling Machine)</span>
+                <span class="text-[10px] bg-emerald-700 text-white px-2 py-0.5 rounded">《設施標準》§45, 58</span>
+              </h4>
+              <ul class="space-y-1.5 text-slate-700 list-disc list-inside leading-relaxed">
+                <li><strong>工件夾緊禁手握：</strong>加工工件必須以鑽床虎鉗（Vise）或 C 型夾鉗固定於工作檯，**嚴禁以手直接握持薄板或工件進行鑽孔**（防止工件旋轉甩飛）。</li>
+                <li><strong>皮帶輪護罩：</strong>頂部變速皮帶輪及傳動皮帶必須裝設金屬防護罩。</li>
+                <li><strong>帶狀切屑清理：</strong>鑽孔產生連續帶狀切屑時，應停機並使用**鉤棒或鉗子**移除，禁止用手拉扯。</li>
+                <li><strong>絕對禁忌：</strong>鑽床運轉中**絕對禁止配戴各類手套**（防止麻質/棉質手套遭鑽頭捲入引發斷指致命事故）。</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- 04 (深度擴充：化學品安全與 GHS 危害標示 / 廢棄物處置專區) -->
+        <!-- 04 -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 md:col-span-2 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">04</span>
@@ -1077,10 +1124,10 @@
             <span class="bg-rose-100 text-rose-800 font-bold text-[11px] px-2.5 py-0.5 rounded">案例 11</span>
             <span class="text-xs text-slate-500 font-medium">機械夾捲</span>
           </div>
-          <h3 class="font-bold text-slate-900 text-sm">維修輸送帶被捲入身亡</h3>
+          <h3 class="font-bold text-slate-900 text-sm">維修車床/輸送帶被捲入身亡</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：運轉中清理輸送帶滾輪。<br>間接原因：未設定安全護欄連鎖開關。<br>根本原因：無 LOTO 規範，未落實停機清能作業。</p>
+            <p>直接原因：配戴布手套清理車床/輸送帶旋轉物件。<br>間接原因：未設定安全護罩連鎖斷電開關。<br>根本原因：無 LOTO 規範，違規戴手套操作旋轉機械。</p>
           </div>
         </div>
 
