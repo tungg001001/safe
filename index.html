@@ -250,7 +250,7 @@
           </p>
 
           <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1 mb-2">
-            <p><strong>📜 法規條文：</strong>《職業安全衛生管理辦法》第 3 條；審查頻率每年至少 1 次，發生重大變更或職災時應立即重新評估。</p>
+            <p><strong>📜 法規條文：</strong>《職業安全衛生管理辦法》第 3 條；審查頻率每年至少 1 次，發生重大變更或職災時應列車重新評估。</p>
           </div>
 
           <!-- JSA 現場實務評估範例表格 -->
@@ -293,7 +293,7 @@
                     </td>
                   </tr>
 
-                  <!-- 範例 2: 化學廢液分裝 -->
+                  <!-- 範例 2: 化学廢液分裝 -->
                   <tr class="hover:bg-slate-50">
                     <td class="p-2.5 border border-slate-200 font-bold text-slate-900">
                       <strong>【範例二：廢液換桶】</strong><br>1. 搬運化學廢液桶<br>2. 傾倒分裝至暫存桶
@@ -493,18 +493,109 @@
           </div>
         </div>
 
-        <!-- 06 -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
+        <!-- 06 (電氣安全與 LOTO 擴充專區) -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 md:col-span-2 space-y-5">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">06</span>
+            <span class="font-bold text-amber-600 text-xs bg-amber-50 px-2 py-0.5 rounded border border-amber-200">電氣危害預防與上鎖程序</span>
             <i class="fa-solid fa-bolt text-amber-500 text-lg"></i>
           </div>
-          <h3 class="font-bold text-slate-900 text-base">電氣安全與 LOTO 上鎖掛牌</h3>
-          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度數據解析：</strong>潮濕場所或臨時用電迴路，應裝設高感度高速型漏電斷路器 (ELCB)，其感應申漏電流應在 <strong>30 mA 以內</strong>，動作時間應在 <strong>0.1 秒以內</strong>。高壓電（對地電壓 > <strong>600 V</strong>）活線檢修應維持安全接近距離（如 11~22kV 需維持 <strong>75 公分以上</strong>）。</p>
+          <h3 class="font-bold text-slate-900 text-lg">電氣安全危害控制、設備防護與 LOTO 上鎖掛牌（零能量驗電）完整規範</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            依《職業安全衛生設施標準》第 239~276 條及《用戶用電設備裝置規則》規定，電氣危害具有「不可見性」與「瞬間致死性」。職場必須建立防護設施（ELCB、接地）、活線作業安全距離及強制執行 **LOTO (Lockout / Tagout)** 程序。
+          </p>
 
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
-            <p><strong>📜 法規條文：</strong>《職業安全衛生設施標準》第 239、243、254 條。</p>
-            <p><strong>📊 定量點檢：</strong>ELCB 靈敏度 ≤ 30mA；跳脫時間 ≤ 0.1s；LOTO 執行零能量驗電（以三用電表測得交流與直流電壓均為 0V）。</p>
+          <!-- 電氣安全三大核心模組 -->
+          <div class="grid lg:grid-cols-3 gap-4 text-xs text-slate-800">
+            <!-- 1. 電氣危害類型與生理影響 -->
+            <div class="bg-amber-50/80 p-4 rounded-xl border border-amber-200 space-y-2">
+              <h4 class="font-bold text-amber-900 text-sm border-b border-amber-300 pb-1.5 flex items-center justify-between">
+                <span>⚡ 一、電氣危害類型與生理效應</span>
+                <span class="text-[10px] bg-amber-600 text-white px-2 py-0.5 rounded">危害機制</span>
+              </h4>
+              <ul class="space-y-1.5 text-slate-700 list-disc list-inside leading-relaxed">
+                <li><strong>直接觸電：</strong>人體直接接觸帶電體（如裸露線路、開關端子）。人體通過電流 > <strong>50 mA</strong> 即可能引發心室細動（致命）。</li>
+                <li><strong>間接觸電：</strong>設備漏電致使原本不帶電之金屬外殼帶電，人體觸及造成電擊。</li>
+                <li><strong>電弧灼傷 (Arc Flash)：</strong>短路時產生數千度高溫電弧與爆破衝擊波，致全身重度灼傷及失明。</li>
+                <li><strong>電氣火災：</strong>過載、短路、接觸不良（局部過熱）或漏電火花引燃週邊易燃物。</li>
+              </ul>
+            </div>
+
+            <!-- 2. 防護設施與工程控制 -->
+            <div class="bg-blue-50/80 p-4 rounded-xl border border-blue-200 space-y-2">
+              <h4 class="font-bold text-blue-900 text-sm border-b border-blue-300 pb-1.5 flex items-center justify-between">
+                <span>🛡️ 二、電氣安全防護設施標準</span>
+                <span class="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded">《設施標準》§239, 243</span>
+              </h4>
+              <ul class="space-y-1.5 text-slate-700 list-disc list-inside leading-relaxed">
+                <li><strong>漏電斷路器 (ELCB)：</strong>潮濕場所、鋼架建築或臨時用電迴路，強制裝設高感度高速型 ELCB，動作規格：<strong>感應電流 ≤ 30 mA</strong>、<strong>動作時間 ≤ 0.1 秒</strong>。</li>
+                <li><strong>設備接地工程：</strong>電氣設備金屬外殼應實施第三種或特種接地，接地電阻應達 <strong>100 Ω 以下</strong>（高壓設備需 10 Ω 以下）。</li>
+                <li><strong>配電箱防護：</strong>開關箱應保持關閉鎖定，內部配電盤加裝絕緣保護板，周圍 <strong>80 cm 以內</strong> 嚴禁堆放雜物。</li>
+                <li><strong>絕緣防護具點檢：</strong>高壓作業強制使用絕緣手套、絕緣鞋與絕緣棒，使用前應實施<strong>空氣膨脹氣密點檢</strong>，且每 <strong>6 個月</strong> 定期耐壓試驗。</li>
+              </ul>
+            </div>
+
+            <!-- 3. 活線與近接作業安全距離 -->
+            <div class="bg-emerald-50/80 p-4 rounded-xl border border-emerald-200 space-y-2">
+              <h4 class="font-bold text-emerald-900 text-sm border-b border-emerald-300 pb-1.5 flex items-center justify-between">
+                <span>📏 三、高壓電活線作業安全距離</span>
+                <span class="text-[10px] bg-emerald-700 text-white px-2 py-0.5 rounded">《設施標準》§254</span>
+              </h4>
+              <p class="text-slate-600 mb-1">對地電壓超過 <strong>600 V</strong> 之高壓電線路，進行檢修或接近作業時，身體及導體應維持法定最小安全接近距離：</p>
+              <ul class="space-y-1 text-slate-700 leading-relaxed font-mono">
+                <li class="flex justify-between bg-white/70 p-1 rounded border border-emerald-100"><span>• 600 V ~ 22 kV：</span><strong class="text-emerald-800">≥ 75 cm</strong></li>
+                <li class="flex justify-between bg-white/70 p-1 rounded border border-emerald-100"><span>• 22 kV ~ 33 kV：</span><strong class="text-emerald-800">≥ 90 cm</strong></li>
+                <li class="flex justify-between bg-white/70 p-1 rounded border border-emerald-100"><span>• 33 kV ~ 66 kV：</span><strong class="text-emerald-800">≥ 120 cm</strong></li>
+                <li class="flex justify-between bg-white/70 p-1 rounded border border-emerald-100"><span>• 161 kV 以上：</span><strong class="text-emerald-800">≥ 200 cm</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- LOTO 上鎖掛牌 6 大標準步驟 SOP -->
+          <div class="bg-slate-900 text-slate-100 p-4 rounded-xl space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+              <h4 class="font-bold text-amber-400 text-sm flex items-center gap-2">
+                <i class="fa-solid fa-lock text-amber-400"></i> LOTO (Lockout / Tagout) 上鎖掛牌與零能量驗電 6 大標準步驟 (SOP)
+              </h4>
+              <span class="text-[10px] bg-amber-500 text-slate-950 font-bold px-2 py-0.5 rounded">維修檢修必執行</span>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-2 text-[11px] text-center">
+              <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 space-y-1">
+                <div class="w-6 h-6 bg-amber-500 text-slate-950 rounded-full font-black mx-auto flex items-center justify-center text-xs">1</div>
+                <div class="font-bold text-amber-300">準備停機</div>
+                <div class="text-[10px] text-slate-400">確認電源類型與影響範圍，通知相關人員。</div>
+              </div>
+              <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 space-y-1">
+                <div class="w-6 h-6 bg-amber-500 text-slate-950 rounded-full font-black mx-auto flex items-center justify-center text-xs">2</div>
+                <div class="font-bold text-amber-300">關閉設備</div>
+                <div class="text-[10px] text-slate-400">依標準程序操作開關離斷電源。</div>
+              </div>
+              <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 space-y-1">
+                <div class="w-6 h-6 bg-amber-500 text-slate-950 rounded-full font-black mx-auto flex items-center justify-center text-xs">3</div>
+                <div class="font-bold text-amber-300">隔離能源</div>
+                <div class="text-[10px] text-slate-400">拉開無熔絲開關 (NFB) 或切斷主閘刀。</div>
+              </div>
+              <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 space-y-1">
+                <div class="w-6 h-6 bg-amber-500 text-slate-950 rounded-full font-black mx-auto flex items-center justify-center text-xs">4</div>
+                <div class="font-bold text-amber-300">上鎖掛牌</div>
+                <div class="text-[10px] text-slate-400">上個人安全鎖與掛 Warning 標籤（一人一鎖）。</div>
+              </div>
+              <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 space-y-1">
+                <div class="w-6 h-6 bg-amber-500 text-slate-950 rounded-full font-black mx-auto flex items-center justify-center text-xs">5</div>
+                <div class="font-bold text-amber-300">釋放殘留能</div>
+                <div class="text-[10px] text-slate-400">電容器放電、管道排空、彈簧鬆開。</div>
+              </div>
+              <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 space-y-1">
+                <div class="w-6 h-6 bg-rose-500 text-white rounded-full font-black mx-auto flex items-center justify-center text-xs">6</div>
+                <div class="font-bold text-rose-300">零能量驗電</div>
+                <div class="text-[10px] text-slate-300">以三用電表進行三相測量，確認 AC/DC 均為 0V！</div>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-slate-300 pt-1 flex items-center justify-between border-t border-slate-800">
+              <span>⚠️ <strong>個人專用鎖原則：</strong>每一位作業人員須各自在上鎖哈斯扣 (Hasp) 掛上屬於自己的安全鎖，禁止由他人代鎖或代拿鑰匙，任務完成後各自解鎖。</span>
+            </div>
           </div>
         </div>
 
