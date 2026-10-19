@@ -67,7 +67,7 @@
             職業安全與衛生 <br><span class="text-amber-600 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">精密數據數位學習教材</span>
           </h1>
           <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
-            含 JSA 危害辨識實務拆解範例、TS 安全標章制度、車/銑/鑽床安全規範、GHS 標示與 16 大面向數據標準。
+            含 JSA 危害辨識拆解、TS 安全標章制度、車/銑/鑽床安全規範、GHS 標示與 16 大面向數據標準。
           </p>
           <div class="flex flex-wrap gap-3 pt-2">
             <a href="#curriculum" class="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-md flex items-center gap-2 text-sm">
@@ -89,16 +89,21 @@
               </h3>
               <span class="text-[10px] text-slate-400 bg-slate-100 px-2 py-0.5 rounded">統計數據</span>
             </div>
-            <div class="h-56 relative flex items-center justify-center">
+            <div class="h-60 relative flex items-center justify-center">
               <canvas id="heroHazardChart"></canvas>
             </div>
-            <div class="mt-2 grid grid-cols-2 gap-2 text-[11px] text-slate-500">
+            <div class="mt-4 grid grid-cols-2 gap-2 text-[11px] text-slate-600 border-t border-slate-100 pt-3">
               <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span>高處墜落 (35%)</span>
               <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>機械夾捲 (25%)</span>
               <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-pink-500 inline-block"></span>不法侵害/霸凌 (15%)</span>
               <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span>化學品暴露 (12%)</span>
               <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>局限空間缺氧 (8%)</span>
               <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-500 inline-block"></span>其他事故 (5%)</span>
+            </div>
+            <!-- 圖表資料來源註記 -->
+            <div class="mt-3 text-[10px] text-slate-400 border-t border-slate-100 pt-2 flex items-center gap-1">
+              <i class="fa-solid fa-database text-slate-400"></i>
+              <span><strong>資料來源：</strong>勞動部勞動檢查統計年報（重大職業災害統計）與《執行職務遭受不法侵害預防指引》綜合分析。</span>
             </div>
           </div>
         </div>
@@ -223,7 +228,7 @@
                 <li><strong>佩戴與正確使用防護具：</strong>於高空、高噪音、有害氣體等危險場所，有義務切實佩戴並正確使用 PPE（如配戴安全帽、綁緊安全帶）。</li>
                 <li><strong>接受安全衛生教育訓練：</strong>勞工對於雇主舉辦之法定安衛教育訓練，有接受之義務，無正當理由不得拒絕參訓（《職安法》§32）。</li>
                 <li><strong>接受體格與定期健康檢查：</strong>勞工有接受雇主安排之體格檢查與健康檢查之義務（《職安法》§20）。</li>
-                <li><strong>退避權與條款通報：</strong>發現有立即發生危險之虞時，有權自行停止作業並退避至安全場所，並應獨立向主管報告（《職安法》§18）。</li>
+                <li><strong>退避權與條款通報：</strong>發現有立即發生危險之虞時，有權自行停止作業並退避至安全場所，並應立即向主管報告（《職安法》§18）。</li>
               </ul>
               <div class="bg-rose-100/80 p-2 rounded border border-rose-300 text-[11px] text-rose-900 font-medium">
                 ⚠️ <strong>勞工違規罰則：</strong>受僱員工若不遵守工作守則、拒絕接受教育訓練/健康檢查或不佩戴 PPE，經限期改善不聽勸告者，依《職安法》第 46 條得對勞工處新臺幣 <strong>3,000 元以下</strong> 罰鍰。
@@ -232,7 +237,7 @@
           </div>
         </div>
 
-        <!-- 02 (深度擴充：危害辨識與風險評估 JSA 實務範例專區) -->
+        <!-- 02 (危害辨識與風險評估 JSA 實務範例專區) -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 md:col-span-2 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">02</span>
@@ -315,7 +320,7 @@
           </div>
         </div>
 
-        <!-- 03 (深度擴充：機械設備安全、TS 標章專區與工具機規範 - 無圖片版) -->
+        <!-- 03 (機械設備安全、TS 標章專區與工具機規範) -->
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 md:col-span-2 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">03</span>
@@ -1085,7 +1090,7 @@
           <h3 class="font-bold text-slate-900 text-sm">沖壓機切斷手指事故</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：手伸入危險區域。<br>間接原因：光電安全裝置故障（響應時間 > 20ms）未維修。<br>根本原因：未落實每日開工前點檢與 LOTO 程序。</p>
+            <p><strong>直接原因：</strong>手伸入模具危險區域。<br><strong>間接原因：</strong>光電安全裝置故障（響應時間 > 20ms）未維修。<br><strong>根本原因：</strong>未落實每日開工前點檢與 LOTO 程序。</p>
           </div>
         </div>
 
@@ -1098,7 +1103,7 @@
           <h3 class="font-bold text-slate-900 text-sm">施工架墜落致死事故</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：未佩戴安全帶由 5 樓（> 2 米）施工架墜落。<br>間接原因：施工架未設置 90cm 護欄與腳趾板。<br>根本原因：安全預算被轉嫁，現場欠缺安衛監督。</p>
+            <p><strong>直接原因：</strong>未佩戴安全帶由 5 樓（> 2 米）施工架墜落。<br><strong>間接原因：</strong>施工架未設置 90cm 護欄與腳趾板。<br><strong>根本原因：</strong>安全預算被轉嫁，現場欠缺安衛監督。</p>
           </div>
         </div>
 
@@ -1111,7 +1116,7 @@
           <h3 class="font-bold text-slate-900 text-sm">下水道局限空間缺氧窒息</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：吸入硫化氫 (> 10ppm) 與缺氧 (O₂ < 18%) 昏迷。<br>間接原因：進場前未實施氣體檢測與強制通風。<br>根本原因：承攬商未教育訓練且欠缺緊急救援裝備。</p>
+            <p><strong>直接原因：</strong>吸入硫化氫 (> 10ppm) 與缺氧 (O₂ < 18%) 昏迷。<br><strong>間接原因：</strong>進場前未實施氣體檢測與強制通風。<br><strong>根本原因：</strong>承攬商未教育訓練且欠缺緊急救援裝備。</p>
           </div>
         </div>
 
@@ -1124,7 +1129,7 @@
           <h3 class="font-bold text-slate-900 text-sm">化學廢液不相容混合爆炸</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：將不相容之廢酸與廢有機溶劑倒入同一桶。<br>間接原因：廢液桶未貼 GHS 標籤 6 要素、無 110% 盛容座。<br>根本原因：未訂定廢化學品處置 SOP 且缺乏危害通識訓練。</p>
+            <p><strong>直接原因：</strong>將不相容之廢酸與廢有機溶劑倒入同一桶。<br><strong>間接原因：</strong>廢液桶未貼 GHS 標籤 6 要素、無 110% 盛容座。<br><strong>根本原因：</strong>未訂定廢化學品處置 SOP 且缺乏危害通識訓練。</p>
           </div>
         </div>
 
@@ -1137,7 +1142,7 @@
           <h3 class="font-bold text-slate-900 text-sm">高壓電活線作業觸電</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：觸及 220V 活線端子。<br>間接原因：未裝設 30mA/0.1秒 ELCB，未穿絕緣鞋。<br>根本原因：未執行 LOTO 上鎖清能驗電程序即進行檢修。</p>
+            <p><strong>直接原因：</strong>觸及 220V 活線端子。<br><strong>間接原因：</strong>未裝設 30mA/0.1秒 ELCB，未穿絕緣鞋。<br><strong>根本原因：</strong>未執行 LOTO 上鎖清能驗電程序即進行檢修。</p>
           </div>
         </div>
 
@@ -1150,7 +1155,7 @@
           <h3 class="font-bold text-slate-900 text-sm">合梯倒塌致腦震盪</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：站立於合梯頂階工作（張角 > 75°）失去平衡。<br>間接原因：合梯未繫繩且踏條未達 5cm 寬度。<br>根本原因：高度超過 2 米作業未提供合格施工架，違規使用合梯。</p>
+            <p><strong>直接原因：</strong>站立於合梯頂階工作（張角 > 75°）失去平衡。<br><strong>間接原因：</strong>合梯未繫繩且踏條未達 5cm 寬度。<br><strong>根本原因：</strong>高度超過 2 米作業未提供合格施工架，違規使用合梯。</p>
           </div>
         </div>
 
@@ -1163,7 +1168,7 @@
           <h3 class="font-bold text-slate-900 text-sm">長官持續言語暴行致憂鬱症</h3>
           <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
             <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
-            <p>直接原因：遭主管公開辱罵與高壓排擠。<br>間接原因：企業未建立 3 日內啟動之獨立申訴管道。<br>根本原因：缺乏職場霸凌零容忍機制，管理階層權力濫用。</p>
+            <p><strong>直接原因：</strong>遭主管公開辱罵與高壓排擠。<br><strong>間接原因：</strong>企業未建立 3 日內啟動之獨立申訴管道。<br><strong>根本原因：</strong>缺乏職場霸凌零容忍機制，管理階層權力濫用。</p>
           </div>
         </div>
 
@@ -1173,4 +1178,118 @@
             <span class="bg-rose-100 text-rose-800 font-bold text-[11px] px-2.5 py-0.5 rounded">案例 08</span>
             <span class="text-xs text-slate-500 font-medium">人因工程</span>
           </div>
-          <h3 class="font-bold text-slate-900 text-sm">搬運重
+          <h3 class="font-bold text-slate-900 text-sm">搬運重物致腰椎間盤突出</h3>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
+            <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
+            <p><strong>直接原因：</strong>單人長期彎腰搬運 35kg (> 20kg 限額) 物料。<br><strong>間接原因：</strong>未提供自動化油壓升降台等輔具。<br><strong>根本原因：</strong>未實施人因工程骨骼肌肉危害評估（KIM > 50分未改善）。</p>
+          </div>
+        </div>
+
+        <!-- 案例 9 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-rose-500 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <span class="bg-rose-100 text-rose-800 font-bold text-[11px] px-2.5 py-0.5 rounded">案例 09</span>
+            <span class="text-xs text-slate-500 font-medium">火災爆炸</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm">粉塵爆炸致全身灼傷</h3>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
+            <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
+            <p><strong>直接原因：</strong>金屬粉塵濃度達爆炸下限（> 10% LEL）遇靜電火花。<br><strong>間接原因：</strong>未裝設集塵設備與防暴燈具。<br><strong>根本原因：</strong>未落實作業環境監測與靜電接地。</p>
+          </div>
+        </div>
+
+        <!-- 案例 10 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-rose-500 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <span class="bg-rose-100 text-rose-800 font-bold text-[11px] px-2.5 py-0.5 rounded">案例 10</span>
+            <span class="text-xs text-slate-500 font-medium">起重吊掛</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm">吊車吊臂折斷砸中路人</h3>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
+            <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
+            <p><strong>直接原因：</strong>超載吊掛致鋼索斷裂。<br><strong>間接原因：</strong>過捲預防裝置被停用關閉。<br><strong>根本原因：</strong>起重機未取得定期檢查合格證，違規操作。</p>
+          </div>
+        </div>
+
+        <!-- 案例 11 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-rose-500 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <span class="bg-rose-100 text-rose-800 font-bold text-[11px] px-2.5 py-0.5 rounded">案例 11</span>
+            <span class="text-xs text-slate-500 font-medium">機械夾捲</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm">維修車床/輸送帶被捲入身亡</h3>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
+            <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
+            <p><strong>直接原因：</strong>配戴布手套清理車床/輸送帶旋轉物件。<br><strong>間接原因：</strong>未設定安全護罩連鎖斷電開關。<br><strong>根本原因：</strong>無 LOTO 規範，違規戴手套操作旋轉機械。</p>
+          </div>
+        </div>
+
+        <!-- 案例 12 -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-l-4 border-l-rose-500 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <span class="bg-rose-100 text-rose-800 font-bold text-[11px] px-2.5 py-0.5 rounded">案例 12</span>
+            <span class="text-xs text-slate-500 font-medium">承攬管理</span>
+          </div>
+          <h3 class="font-bold text-slate-900 text-sm">外包商焊接引發大火</h3>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 leading-relaxed space-y-1">
+            <p class="font-semibold text-rose-700">🔍 RCA 根因分析：</p>
+            <p><strong>直接原因：</strong>焊渣掉落下方泡綿堆積區。<br><strong>間接原因：</strong>動火作業前未清空 10 米內易燃物、未備滅火器。<br><strong>根本原因：</strong>原事業單位未召開協議組織，未實施動火許可證審核。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 頁尾與隱私權條款 Footer -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-16 text-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-slate-200">OSH 職業安全與衛生全方位數位學習與管理平台</p>
+        <p class="mt-1 text-slate-500">本網站為教育教學與技術展示用途，符合中華民國《職業安全衛生法》現行規範。</p>
+      </div>
+      <div class="flex items-center gap-6 font-semibold">
+        <a href="privacy.html" class="hover:text-amber-400 transition-colors underline">隱私權聲明 (Privacy Policy)</a>
+        <a href="#curriculum" class="hover:text-amber-400 transition-colors">課程架構</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 圖表繪製腳本 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctx = document.getElementById('heroHazardChart');
+      if (ctx && typeof Chart !== 'undefined') {
+        new Chart(ctx.getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: ['高處墜落/跌落', '機械夾捲', '不法侵害/霸凌', '化學品暴露', '局限空間缺氧', '其他'],
+            datasets: [{
+              data: [35, 25, 15, 12, 8, 5],
+              backgroundColor: ['#f59e0b', '#ef4444', '#ec4899', '#3b82f6', '#10b981', '#64748b'],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return ' ' + context.label + ': ' + context.raw + '%';
+                  }
+                }
+              }
+            },
+            cutout: '65%'
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
