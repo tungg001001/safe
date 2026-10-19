@@ -89,7 +89,6 @@
               </h3>
               <span class="text-[10px] text-slate-400 bg-slate-100 px-2 py-0.5 rounded">統計數據</span>
             </div>
-            <!-- 圖表降級備援方案：即使 JS 載入失敗也有文字顯示 -->
             <div class="h-56 relative flex items-center justify-center">
               <canvas id="heroHazardChart"></canvas>
             </div>
@@ -174,187 +173,255 @@
       </div>
     </section>
 
-    <!-- 二、16 大面向詳細課綱內容 (純 HTML 靜態直鋪版，不用 JS 也能完全呈現) -->
+    <!-- 二、16 大面向詳細課綱內容 -->
     <section id="curriculum" class="scroll-mt-20">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
-          <i class="fa-solid fa-boxes-stacked text-amber-500"></i> 二、職業安全衛生 16 大面向數位教材 (3倍深度擴充版)
+          <i class="fa-solid fa-boxes-stacked text-amber-500"></i> 二、職業安全衛生 16 大面向數位教材
         </h2>
-        <p class="text-slate-600 text-sm mt-2">包含法規對照、TS 標章、GHS 廢處置、技術 SOP 與稽核重點之深度專題</p>
+        <p class="text-slate-600 text-sm mt-2">包含法規依據、TS 標章、GHS 廢處置、技術 SOP 與稽核點檢重點之完整教案內容</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         <!-- 01 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">01</span>
             <i class="fa-solid fa-sitemap text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">職業安全衛生管理體系 (ISO 45001)</h3>
-          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>建構 ISO 45001 管理體系需符合《職業安全衛生管理辦法》第 12 條規定。事業單位勞工人數在 300 人以上者，應訂定職業安全衛生管理計畫，並實施安全衛生管理。</p>
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
-            <strong>法規對照：</strong>《職安法》第 23 條、《職安辦法》第 2-1 條。每季召開職安委員會，勞工代表比例不得少於 1/3。
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>建構 ISO 45001 管理體系需符合《職業安全衛生管理辦法》第 12 條規定。常態僱用勞工人數在 300 人以上者，應訂定職業安全衛生管理計畫，並建立一級專責管理單位實施安全衛生管理。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職安法》第 23 條、《職安辦法》第 2-1 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 發表高階管理階層安衛政策 ➔ 2. 成立職安衛委員會（每季開會且勞工代表比例 ≥ 1/3） ➔ 3. 實施每年管理審查與滾動修正。</p>
           </div>
         </div>
 
         <!-- 02 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">02</span>
             <i class="fa-solid fa-triangle-exclamation text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">危害辨識與風險評估 (JSA)</h3>
-          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>針對所有日常與非日常作業（包含維修、清機）建構 JSA 流程。風險值 R = 可能性 (P) × 嚴重度 (S)。高風險 (R≥15) 需立即停工改善。</p>
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
-            <strong>技術 SOP：</strong>分解步驟 ➔ 辨識危害 ➔ 估計風險等級 ➔ 實施工程 controls 控制。
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>針對常態作業、維修保養與非日常作業，全面實施工作安全分析 (JSA)。風險值計算方式為 R = 可能性 (P) × 嚴重度 (S)。當風險值 R ≥ 15 時判定為高不可接受風險，必須強制暫停作業並實施改善。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職業安全衛生管理辦法》第 3 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 作業分解為 3-5 個主要步驟 ➔ 2. 辨識各步驟潛在物理、化學、人因危害 ➔ 3. 評估現有防護措施並量化 R 值 ➔ 4. 提出控制對策。</p>
           </div>
         </div>
 
         <!-- 03 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">03</span>
             <i class="fa-solid fa-gears text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">機械設備安全與 TS 安全標章</h3>
-          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>依《職安法》第 7 條，指定機械（沖剪機械、圓盤鋸等）非經檢驗合格貼有 TS 安全標章，不得產製或運入國內。</p>
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
-            <strong>驗收重點：</strong>查驗 TS 登錄通知書，確認雙手起動裝置具備防連續動作機制，光電安全裝置響應時間 <20ms。
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>依《職安法》第 7 條規定，指定機械設備（如沖剪機械、木工圓盤鋸、高空工作車等）非經檢驗合格並貼有安全標章 (TS 標章)，不得產製、運出廠場或進口。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《機械設備器具安全標準》、《職安法》第 7、8 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 驗收時查核 TS 登錄證書與本體銘牌 ➔ 2. 確認雙手起動裝置間距 > 30cm 且具防連續單衝壓連鎖 ➔ 3. 測試光電遮光連鎖響應時間小於 20ms。</p>
           </div>
         </div>
 
         <!-- 04 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">04</span>
             <i class="fa-solid fa-flask text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">化學品安全與 GHS / 廢棄物處置</h3>
-          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>落實 GHS 16 項 SDS 安全資料表。廢液處置受《廢棄物清理法》約束，有機與酸鹼廢液須分開貯存於防爆防洩櫃，盛容座達容器容積 110% 以上，委託合格廠商申報清運。</p>
-          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900">
-            <strong>合規重點：</strong>SDS 每 3 年重審，廢液桶張貼 GHS 圖示與廢棄物代碼聯單。
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>落實危害性化學品 GHS 標示與 16 項 Safety Data Sheet (SDS) 備查。化學廢液與廢棄物處置嚴格遵循《廢棄物清理法》，有機廢液與酸鹼廢液必須分類分區貯存於具防爆防洩漏盛容座（盛容量達容器 110% 以上）之暫存區，並委託合格機構線上聯單申報清運。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《危害性化學品標示及通識規則》、《廢棄物清理法》第 31 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 現場分裝容器全面貼印 GHS 圖示標籤 ➔ 2. SDS 每 3 年定期檢討更新 ➔ 3. 廢液貯存區設置盛漏托盤與氣體洩漏警報器。</p>
           </div>
         </div>
 
         <!-- 05 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">05</span>
             <i class="fa-solid fa-person-falling text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">高處作業與墜落預防 (合梯/施工架)</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">高度 2 公尺以上作業強制佩戴全身背負式安全帶與防墜器。合梯須符合 CNS 標準，具備腳踏扣鎖與繫繩，嚴禁於頂階或第二階作業。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>離地 2 公尺以上作業高度強制使用高空工作車或搭設標準施工架，並配戴符合 CNS 14253 標準之全身背負式安全帶與掛鉤於獨立安全母索上。合梯必須具備堅固結構、腳踏扣鎖與繫繩，嚴禁站立於頂階或第二階進行作業。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《營造安全衛生設施標準》第 11、19 條、《營造作業安全衛生規則》。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 開工前簽發高處作業許可證 ➔ 2. 檢查施工架踏板踏滿與交叉斜撐 ➔ 3. 實施合梯兩梯腳間距角度限制與防滑腳墊點檢。</p>
+          </div>
         </div>
 
         <!-- 06 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">06</span>
             <i class="fa-solid fa-bolt text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">電氣安全與 LOTO 上鎖掛牌</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">臨時用電迴路應裝設高感度高速型漏電斷路器 (ELCB)。檢修作業強制執行 LOTO：關閉電源 ➔ 掛牌上鎖 ➔ 釋放殘餘能量與驗電，確認零能量狀態才可施工。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>所有臨時用電分電箱及潮濕場所設備迴路，均應串接高感度高速型漏電斷路器 (ELCB，動作時間 <0.1 秒)。機械維修、保養與清機作業，強制執行 LOTO（Lockout/Tagout 上鎖掛牌清能程序），防止設備意外啟動致夾捲或觸電。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職業安全衛生設施標準》第 239~276 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 關閉電源總開關 ➔ 2. 上鎖並掛上維修人員個人警告標籤 ➔ 3. 釋放殘餘電壓與氣壓 ➔ 4. 使用三用電表進行驗電，確認零能量狀態才可施工。</p>
+          </div>
         </div>
 
         <!-- 07 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">07</span>
             <i class="fa-solid fa-dungeon text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">局限空間作業安全與氣體檢測</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">進場前實施 4 氣體檢測（氧氣不得低於 19.5%、硫化氫 <10ppm）。現場須配置強制送風機、救援三腳架、吊升帶與專職監視人員。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>地下人孔、水槽、管道間等局限空間作業，主因缺氧或有害氣體（如硫化氫、一氧化碳）蓄積導致集體窒息死亡。進場前必須實施連續強制通風與四合一氣體檢測（氧氣濃度必須維持在 19.5% 至 23.0% 之間）。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《局限空間作業災害預防指導要點》、《職業安全衛生設施標準》第 29-1 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 簽發局限空間作業許可證 ➔ 2. 實施入口處氣體檢測 ➔ 3. 配置救生索、救援三腳架與專職入口監視人員，禁止單人作業。</p>
+          </div>
         </div>
 
         <!-- 08 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">08</span>
             <i class="fa-solid fa-notes-medical text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">職業衛生、照度與噪音控制</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">辦公場所照度需達 500 Lux 以上，精細作業需 1000 Lux。暴露噪音 85 dBA 以上區域應劃定警示區，強制佩戴耳塞並每年實施聽力檢查。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>作業場所需維持良好物理環境衛生。辦公場所照度需達 500 Lux 以上，精細組裝作業需達 1000 Lux 以上。暴露噪音 85 dBA 以上工作區域應劃定為高噪音警示區，強制佩戴合格耳塞/耳罩並實施每年聽力檢測與健康追蹤分級管理。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《勞工健康保護規則》、《勞工作業環境監測實施辦法》。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 每半年實施作業環境監測 ➔ 2. 辦理新進與定期特別危害健康體檢 ➔ 3. 廠醫廠護進場提供健康諮詢與職場復工評估。</p>
+          </div>
         </div>
 
         <!-- 09 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">09</span>
             <i class="fa-solid fa-hand-handshake-slash text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">職場霸凌與不法侵害防治</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">30 人以上單位應訂定防範計畫與公開零容忍聲明。接獲申訴 3 日內啟動獨立調查（外部專家比例≥1/2）。負責人為行為人時最高開罰 100 萬元。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>雇主有責任保護勞工避免於執行職務時遭受肢體、言語、心理暴力及職場霸凌。30 人以上事業單位應訂定「執行職務遭受不法侵害預防計畫」並公開零容忍政策聲明。接獲申訴後 3 日內啟動調查，外部專家小組比例不得少於 1/2。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職安法》第 6 條第 2 項第 3 款、《執行職務遭受不法侵害預防指引》。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 公開多元申訴管道 ➔ 2. 調查小組全程保密並實施雙方職務隔離 ➔ 3. 安排受害者 EAP 心理諮商與法律扶助。</p>
+          </div>
         </div>
 
         <!-- 10 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">10</span>
             <i class="fa-solid fa-child text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">人因工程與骨骼肌肉預防</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">運用 KIM 評估表進行重複性動作與抬舉風險調查。單人搬運男性不得超過 20kg、女性 15kg，引進真空搬運輔具與定期微休息。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>預防因重複性動作、不當姿勢及過重搬運所引發之人因工程骨骼肌肉傷害 (MSDs)。運用關鍵指標法 (KIM) 評估抬舉與搬運風險。單人人力搬運重量，男性建議控制於 20kg 以下、女性控制於 15kg 以下。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《人因工程危害預防指南》、《職安法》第 6 條第 2 項第 1 款。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 填寫肌肉骨骼症狀調查問卷 ➔ 2. 高風險作業引進油壓升降台與真空搬運輔具 ➔ 3. 規劃每小時 5 分鐘微休息時間。</p>
+          </div>
         </div>
 
         <!-- 11 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">11</span>
             <i class="fa-solid fa-fire-extinguisher text-amber-500 text-lg"></i>
           </div>
-          <h3 class="font-bold text-slate-900 text-base">消防安全與自衛消防編組</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">落實 PASS 滅火器操作原則（拉、瞄、壓、掃）。每半年舉辦自衛消防編組演練（含滅火組、通報組、避難引導組）。</p>
+          <h3 class="font-bold text-slate-900 text-base">消防安全與自衛消防編组</h3>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>落實廠區防火管理，熟練掌握 ABC 乾粉滅火器 PASS 操作口訣（拉 Pull、瞄 Aim、壓 Squeeze、掃 Sweep）。事業單位每半年應舉辦一次自衛消防編組演練，包含滅火組、通報組、避難引導組、安全防護組與救護組實兵操演。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《消防法》第 13 條、《消防法施行細則》。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 確保逃生避難通道全天候淨空 ➔ 2. 每月點檢防火門與緊急照明燈功能 ➔ 3. 製作張貼現場平面避難引導圖。</p>
+          </div>
         </div>
 
         <!-- 12 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">12</span>
             <i class="fa-solid fa-handshake text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">承攬管理與共同作業</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">原事業單位交付承攬前應事先告知作業危害，成立協議組織並召開定期會議，針對危險作業執行動火與高空簽核許可證。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>原事業單位交付承攬時，應於事前以書面明確告知工作環境與危害因素。與承攬人共同作業時，應成立協議組織，由原事業單位負責人擔任主席，每日開工前實施危害會商、現場巡檢與統一指揮協調。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職安法》第 26、27 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 審查承攬商安衛資格與人員進場證件 ➔ 2. 簽發動火與高空危險作業許可證 ➔ 3. 違規作業即時勒令停工整頓。</p>
+          </div>
         </div>
 
         <!-- 13 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">13</span>
             <i class="fa-solid fa-magnifying-glass text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">職災調查與 RCA 根因分析</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">重大事故 8 小時內通報勞檢機構。運用 5-Whys 與魚骨圖深入追查制度、管理與設施設備之根本原因（CAPA）。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>發生重大職業災害時，雇主應於 8 小時內通報勞動檢查機構。事故現場應立即封鎖保持原狀。運用 RCA (Root Cause Analysis) 根因分析工具與 5-Whys 方法，從設備、環境、程序及管理系統層面找出根本缺失。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職安法》第 37 條、《職業安全衛生管理辦法》第 14 條。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 訪談現場目擊者與證人 ➔ 2. 繪製魚骨圖釐清因果網絡 ➔ 3. 制定預防再發生矯正措施 (CAPA) 並追蹤結案。</p>
+          </div>
         </div>
 
         <!-- 14 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">14</span>
             <i class="fa-solid fa-microchip text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">智慧職安與 AIoT 應用</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">導入 AI 影像辨識防護具佩戴、穿戴式安全帶鉤掛感測器與電子圍籬警告，即時防止人員進入危險區域。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>導入智慧工地與 AIoT 新科技。利用 AI 電眼影像辨識自動偵測人員是否配戴安全帽、安全帶；運用 RTLS 室內定位與電子圍籬，於人員誤入危險區域或車輛盲區時發出聲光警示並連動設備斷電。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 應用趨勢：</strong>智慧職安科技輔助計畫、工安高風險作業自動感測。</p>
+            <p><strong>🛠️ 技術 SOP：</strong>1. 配置 AI 穿戴式心率與跌倒感應器 ➔ 2. 整合智慧安衛戰情看板 ➔ 3. 異常事件自動發送 Line/SMS 警報與紀錄。</p>
+          </div>
         </div>
 
         <!-- 15 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">15</span>
             <i class="fa-solid fa-gavel text-amber-500 text-lg"></i>
           </div>
-          <h3 class="font-bold text-slate-900 text-base">職安衛法規與最新修法</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">《職安法》修法將重大職災罰鍰上限由 30 萬元提升至 150 萬元，強制公告違規事業單位與負責人姓名。</p>
+          <h3 class="font-bold text-slate-900 text-base">職安衛法規與最新修法重點</h3>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>《職安法》最新修法大幅調升罰則額度，違反安全設施規定致發生重大職災者，最高罰鍰由 30 萬元提升至 150 萬元，並得按日連續處罰。發生重大職災之事業單位，強制於公開網站公告企業名稱與負責人姓名。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 法規依據：</strong>《職業安全衛生法》、《勞工職業災害保險及保護法》。</p>
+            <p><strong>🛠️ 應對重點：</strong>1. 建立風險預防前移機制 ➔ 2. 將營造工程風險評估納入業主規劃設計責任 ➔ 3. 強化雇主職災補償責任。</p>
+          </div>
         </div>
 
         <!-- 16 -->
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-3">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500 space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-2">
             <span class="text-xs font-black bg-amber-500 text-white px-2.5 py-0.5 rounded">16</span>
             <i class="fa-solid fa-leaf text-amber-500 text-lg"></i>
           </div>
           <h3 class="font-bold text-slate-900 text-base">ESG 與永續職安文化</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">揭露 GRI 403 職安衛指標、失能傷害頻率 (FR) 與嚴重率 (SR)，將安全衛生管理提升至董事會與 ESG 永續層級。</p>
+          <p class="text-xs text-slate-600 leading-relaxed"><strong>深度解析：</strong>將職業安全衛生納入企業 ESG 永續治理的核心範疇。定期計算並公開 GRI 403 職安指標，包含失能傷害頻率 (FR, Frequency Rate) 與失能傷害嚴重率 (SR, Severity Rate)，將安衛績效提升至董事會監督層級。</p>
+
+          <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-1">
+            <p><strong>📜 國際標準：</strong>GRI 403: Occupational Health and Safety 2018。</p>
+            <p><strong>🛠️ 指算公式：</strong>FR = (失能傷害人次 / 總經歷工時) × 1,000,000；SR = (總損失工作日數 / 總經歷工時) × 1,000,000。</p>
+          </div>
         </div>
 
       </div>
@@ -739,7 +806,7 @@
       </div>
     </section>
 
-    <!-- 七、12 大實務職災案例庫 (純 HTML 靜態直鋪版) -->
+    <!-- 七、12 大實務職災案例庫 (RCA 根因分析) -->
     <section id="cases" class="scroll-mt-20">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-black text-slate-900 flex items-center justify-center gap-2">
